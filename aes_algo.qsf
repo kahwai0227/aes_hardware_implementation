@@ -61,3 +61,6 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STI
 set_global_assignment -name SYSTEMVERILOG_FILE subBytes.sv
 set_global_assignment -name SYSTEMVERILOG_FILE mixColumns.sv
 set_global_assignment -name SYSTEMVERILOG_FILE addRoundKey.sv
+set_global_assignment -name SYSTEMVERILOG_FILE aes_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE keyGenerator.sv
+set_global_assignment -name SYSTEMVERILOG_FILE roundKeyGenerator.sv
