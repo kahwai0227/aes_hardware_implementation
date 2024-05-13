@@ -5,17 +5,17 @@ module aes_top (
 );
 
 	reg [127:0] round_keys[0:10]; // 11 round keys for AES-128
-	wire [127:0] state_matrix0 [0:3][0:3];
-	wire [127:0] state_matrix1 [0:3][0:3];
-	wire [127:0] state_matrix2 [0:3][0:3];
-	wire [127:0] state_matrix3 [0:3][0:3];
-	wire [127:0] state_matrix4 [0:3][0:3];
-	wire [127:0] state_matrix5 [0:3][0:3];
-	wire [127:0] state_matrix6 [0:3][0:3];
-	wire [127:0] state_matrix7 [0:3][0:3];
-	wire [127:0] state_matrix8 [0:3][0:3];
-	wire [127:0] state_matrix9 [0:3][0:3];
-	wire [127:0] state_matrix10 [0:3][0:3];
+	wire [7:0] state_matrix0 [0:3][0:3];
+	wire [7:0] state_matrix1 [0:3][0:3];
+	wire [7:0] state_matrix2 [0:3][0:3];
+	wire [7:0] state_matrix3 [0:3][0:3];
+	wire [7:0] state_matrix4 [0:3][0:3];
+	wire [7:0] state_matrix5 [0:3][0:3];
+	wire [7:0] state_matrix6 [0:3][0:3];
+	wire [7:0] state_matrix7 [0:3][0:3];
+	wire [7:0] state_matrix8 [0:3][0:3];
+	wire [7:0] state_matrix9 [0:3][0:3];
+	wire [7:0] state_matrix10 [0:3][0:3];
 
 	// Instantiate the round key generator module
 	roundKeyGenerator rkg(

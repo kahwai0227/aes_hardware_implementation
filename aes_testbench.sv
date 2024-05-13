@@ -13,12 +13,16 @@ module aes_testbench();
     );
 
     // Initial values for plaintext and key (you can modify these as needed)
+	 initial begin
+	 $monitor($time, " plaintext=%h, key=%h, ciphertext=%h", plaintext, key, ciphertext);
+	 end
+	 
     initial begin
-        plaintext = 128'h00112233445566778899aabbccddeeff; // Example plaintext
-        key = 128'h000102030405060708090a0b0c0d0e0f;       // Example key
-		  #10;
-		  $display("Ciphertext: %h", ciphertext);
-    end
+        #0 plaintext = 128'h00000000000000000000000000000000; key = 128'h00000000000000000000000000000000;       // Example key
+		  #50 plaintext = 128'h6BC1BEE22E409F96E93D7E117393172A; key = 128'h2B7E151628AED2A6ABF7158809CF4F3;
+		  #100 plaintext = 128'hAE2D8A571E03AC9C9EB76FAC45AF8E51; key = 128'h2B7E151628AED2A6ABF7158809CF4F3;
+		  #150 plaintext = 128'h00112233445566778899AABBCCDDEEF; key = 128'h000102030405060708090A0B0C0D0E0;
+	 end
 
     // Add stimulus generation, assertions, and other testbench code here
 

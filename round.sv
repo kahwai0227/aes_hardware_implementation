@@ -4,9 +4,9 @@ module round(
 	output reg [7:0] updated_state_matrix [0:3][0:3]
 );
 
-wire [127:0] stage0[0:3][0:3];
-wire [127:0] stage1[0:3][0:3];
-wire [127:0] stage2[0:3][0:3];
+wire [7:0] stage0[0:3][0:3];
+wire [7:0] stage1[0:3][0:3];
+wire [7:0] stage2[0:3][0:3];
 
 subBytes sb(.state_matrix(state_matrix), .substituted_matrix(stage0));
 shiftRows sr(.state_matrix(stage0), .shifted_matrix(stage1));
