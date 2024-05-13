@@ -1,5 +1,5 @@
 Analysis & Synthesis report for aes_algo
-Mon May 13 11:54:47 2024
+Mon May 13 19:32:30 2024
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -14,7 +14,11 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Analysis & Synthesis Messages
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Port Connectivity Checks: "finalRound:finalRound_inst|addRoundKey:ark"
+ 11. Port Connectivity Checks: "initialRound:r0|addRoundKey:comb_3"
+ 12. Port Connectivity Checks: "roundKeyGenerator:rkg"
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -40,13 +44,13 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                             ;
 +-----------------------------+--------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Mon May 13 11:54:47 2024      ;
+; Analysis & Synthesis Status ; Successful - Mon May 13 19:32:30 2024      ;
 ; Quartus II 64-Bit Version   ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name               ; aes_algo                                   ;
-; Top-level Entity Name       ; pt2sm                                      ;
+; Top-level Entity Name       ; aes_top                                    ;
 ; Family                      ; MAX V                                      ;
-; Total logic elements        ; 0                                          ;
-; Total pins                  ; 256                                        ;
+; Total logic elements        ; 8                                          ;
+; Total pins                  ; 384                                        ;
 ; Total virtual pins          ; 0                                          ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                              ;
 +-----------------------------+--------------------------------------------+
@@ -58,7 +62,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; 5M2210ZF324I5      ;                    ;
-; Top-level entity name                                                      ; pt2sm              ; aes_algo           ;
+; Top-level entity name                                                      ; aes_top            ; aes_algo           ;
 ; Family name                                                                ; MAX V              ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -136,56 +140,66 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                         ;
-+----------------------------------+-----------------+------------------------------+----------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path     ; Library ;
-+----------------------------------+-----------------+------------------------------+----------------------------------+---------+
-; pt2sm.sv                         ; yes             ; User SystemVerilog HDL File  ; D:/altera/13.1/aes_algo/pt2sm.sv ;         ;
-+----------------------------------+-----------------+------------------------------+----------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                     ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                 ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------+---------+
+; pt2sm.sv                         ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/pt2sm.sv             ;         ;
+; subBytes.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/subBytes.sv          ;         ;
+; mixColumns.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/mixColumns.sv        ;         ;
+; addRoundKey.sv                   ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/addRoundKey.sv       ;         ;
+; aes_top.sv                       ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/aes_top.sv           ;         ;
+; roundKeyGenerator.sv             ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/roundKeyGenerator.sv ;         ;
+; shiftRows.sv                     ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/shiftRows.sv         ;         ;
+; initialRound.sv                  ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/initialRound.sv      ;         ;
+; round.sv                         ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/round.sv             ;         ;
+; finalRound.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/finalRound.sv        ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-; Total logic elements                        ; 0              ;
-;     -- Combinational with no register       ; 0              ;
-;     -- Register only                        ; 0              ;
-;     -- Combinational with a register        ; 0              ;
-;                                             ;                ;
-; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 0              ;
-;     -- 3 input functions                    ; 0              ;
-;     -- 2 input functions                    ; 0              ;
-;     -- 1 input functions                    ; 0              ;
-;     -- 0 input functions                    ; 0              ;
-;                                             ;                ;
-; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 0              ;
-;     -- arithmetic mode                      ; 0              ;
-;     -- qfbk mode                            ; 0              ;
-;     -- register cascade mode                ; 0              ;
-;     -- synchronous clear/load mode          ; 0              ;
-;     -- asynchronous clear/load mode         ; 0              ;
-;                                             ;                ;
-; Total registers                             ; 0              ;
-; I/O pins                                    ; 256            ;
-; Maximum fan-out node                        ; plaintext[120] ;
-; Maximum fan-out                             ; 1              ;
-; Total fan-out                               ; 128            ;
-; Average fan-out                             ; 0.50           ;
-+---------------------------------------------+----------------+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++---------------------------------------------+---------+
+; Resource                                    ; Usage   ;
++---------------------------------------------+---------+
+; Total logic elements                        ; 8       ;
+;     -- Combinational with no register       ; 8       ;
+;     -- Register only                        ; 0       ;
+;     -- Combinational with a register        ; 0       ;
+;                                             ;         ;
+; Logic element usage by number of LUT inputs ;         ;
+;     -- 4 input functions                    ; 8       ;
+;     -- 3 input functions                    ; 0       ;
+;     -- 2 input functions                    ; 0       ;
+;     -- 1 input functions                    ; 0       ;
+;     -- 0 input functions                    ; 0       ;
+;                                             ;         ;
+; Logic elements by mode                      ;         ;
+;     -- normal mode                          ; 8       ;
+;     -- arithmetic mode                      ; 0       ;
+;     -- qfbk mode                            ; 0       ;
+;     -- register cascade mode                ; 0       ;
+;     -- synchronous clear/load mode          ; 0       ;
+;     -- asynchronous clear/load mode         ; 0       ;
+;                                             ;         ;
+; Total registers                             ; 0       ;
+; I/O pins                                    ; 384     ;
+; Maximum fan-out node                        ; key[24] ;
+; Maximum fan-out                             ; 1       ;
+; Total fan-out                               ; 40      ;
+; Average fan-out                             ; 0.10    ;
++---------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                  ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; |pt2sm                     ; 0 (0)       ; 0            ; 0          ; 256  ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |pt2sm              ; work         ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                             ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name            ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------+--------------+
+; |aes_top                   ; 8 (0)       ; 0            ; 0          ; 384  ; 0            ; 8 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top                       ; work         ;
+;    |roundKeyGenerator:rkg| ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|roundKeyGenerator:rkg ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -204,13 +218,86 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r1|mixColumns:mc|Selector3   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r1|mixColumns:mc|Selector35  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r1|mixColumns:mc|Selector70  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r1|mixColumns:mc|Selector105 ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r2|mixColumns:mc|Selector0   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r2|mixColumns:mc|Selector39  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r2|mixColumns:mc|Selector72  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r2|mixColumns:mc|Selector111 ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r3|mixColumns:mc|Selector6   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r3|mixColumns:mc|Selector41  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r3|mixColumns:mc|Selector75  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r3|mixColumns:mc|Selector108 ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r4|mixColumns:mc|Selector3   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r4|mixColumns:mc|Selector38  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r4|mixColumns:mc|Selector74  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r4|mixColumns:mc|Selector106 ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r5|mixColumns:mc|Selector6   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r5|mixColumns:mc|Selector41  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r5|mixColumns:mc|Selector74  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r5|mixColumns:mc|Selector108 ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r6|mixColumns:mc|Selector2   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r6|mixColumns:mc|Selector37  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r6|mixColumns:mc|Selector71  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r6|mixColumns:mc|Selector105 ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r7|mixColumns:mc|Selector6   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r7|mixColumns:mc|Selector36  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r7|mixColumns:mc|Selector73  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r7|mixColumns:mc|Selector109 ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r8|mixColumns:mc|Selector1   ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r8|mixColumns:mc|Selector35  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r8|mixColumns:mc|Selector70  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r8|mixColumns:mc|Selector105 ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r9|mixColumns:mc|Selector24  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r9|mixColumns:mc|Selector53  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r9|mixColumns:mc|Selector83  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |aes_top|round:r9|mixColumns:mc|Selector111 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "finalRound:finalRound_inst|addRoundKey:ark"                                                         ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; round_key[127..8]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; updated_state_matrix ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "initialRound:r0|addRoundKey:comb_3" ;
++-------------------+-------+----------+-------------------------+
+; Port              ; Type  ; Severity ; Details                 ;
++-------------------+-------+----------+-------------------------+
+; round_key[127..8] ; Input ; Info     ; Stuck at GND            ;
++-------------------+-------+----------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "roundKeyGenerator:rkg"                                                                                ;
++------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                   ; Type   ; Severity ; Details                                                                             ;
++------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; round_keys[0][127..8]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; round_keys[10][127..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Mon May 13 11:54:46 2024
+    Info: Processing started: Mon May 13 19:27:42 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off aes_algo -c aes_algo
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file pt2sm.sv
@@ -223,16 +310,446 @@ Info (12021): Found 1 design units, including 1 entities, in source file mixcolu
     Info (12023): Found entity 1: mixColumns
 Info (12021): Found 1 design units, including 1 entities, in source file addroundkey.sv
     Info (12023): Found entity 1: addRoundKey
-Info (12127): Elaborating entity "pt2sm" for the top level hierarchy
+Info (12021): Found 1 design units, including 1 entities, in source file aes_top.sv
+    Info (12023): Found entity 1: aes_top
+Info (12021): Found 1 design units, including 1 entities, in source file keygenerator.sv
+    Info (12023): Found entity 1: keyGenerator
+Info (12021): Found 1 design units, including 1 entities, in source file roundkeygenerator.sv
+    Info (12023): Found entity 1: roundKeyGenerator
+Info (12021): Found 1 design units, including 1 entities, in source file shiftrows.sv
+    Info (12023): Found entity 1: shiftRows
+Info (12021): Found 1 design units, including 1 entities, in source file initialround.sv
+    Info (12023): Found entity 1: initialRound
+Info (12021): Found 1 design units, including 1 entities, in source file round.sv
+    Info (12023): Found entity 1: round
+Info (12021): Found 1 design units, including 1 entities, in source file finalround.sv
+    Info (12023): Found entity 1: finalRound
+Info (12021): Found 1 design units, including 1 entities, in source file aes_testbench.sv
+    Info (12023): Found entity 1: aes_testbench
+Critical Warning (10846): Verilog HDL Instantiation warning at initialRound.sv(7): instance has no name
+Info (12127): Elaborating entity "aes_top" for the top level hierarchy
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix0" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix1" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix2" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix3" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix4" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix5" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix6" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix7" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix8" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix9" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix10" into its bus
+Info (12128): Elaborating entity "roundKeyGenerator" for hierarchy "roundKeyGenerator:rkg"
+Warning (10230): Verilog HDL assignment warning at roundKeyGenerator.sv(29): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at roundKeyGenerator.sv(30): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at roundKeyGenerator.sv(31): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at roundKeyGenerator.sv(32): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at roundKeyGenerator.sv(33): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at roundKeyGenerator.sv(34): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at roundKeyGenerator.sv(35): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at roundKeyGenerator.sv(36): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at roundKeyGenerator.sv(37): truncated value with size 64 to match size of target (32)
+Warning (10230): Verilog HDL assignment warning at roundKeyGenerator.sv(38): truncated value with size 64 to match size of target (32)
+Info (12128): Elaborating entity "pt2sm" for hierarchy "pt2sm:pt2sm0"
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (21057): Implemented 256 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 128 input pins
+Info (12128): Elaborating entity "initialRound" for hierarchy "initialRound:r0"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
+Info (12128): Elaborating entity "addRoundKey" for hierarchy "initialRound:r0|addRoundKey:comb_3"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
+Info (12128): Elaborating entity "round" for hierarchy "round:r1"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage0" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage1" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage2" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
+Info (12128): Elaborating entity "subBytes" for hierarchy "round:r1|subBytes:sb"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "substituted_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "substituted_matrix" into its bus
+Info (12128): Elaborating entity "shiftRows" for hierarchy "round:r1|shiftRows:sr"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "shifted_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "shifted_matrix" into its bus
+Info (12128): Elaborating entity "mixColumns" for hierarchy "round:r1|mixColumns:mc"
+Warning (10036): Verilog HDL or VHDL warning at mixColumns.sv(12): object "mix_matrix" assigned a value but never read
+Warning (10762): Verilog HDL Case Statement warning at mixColumns.sv(28): can't check case statement for completeness because the case expression has too many possible states
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "mixed_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "mix_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "mixed_matrix" into its bus
+Info (12128): Elaborating entity "finalRound" for hierarchy "finalRound:finalRound_inst"
+Warning (10036): Verilog HDL or VHDL warning at finalRound.sv(9): object "stage2" assigned a value but never read
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage0" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage1" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage2" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "ciphertext[8]" is stuck at GND
+    Warning (13410): Pin "ciphertext[9]" is stuck at GND
+    Warning (13410): Pin "ciphertext[10]" is stuck at GND
+    Warning (13410): Pin "ciphertext[11]" is stuck at GND
+    Warning (13410): Pin "ciphertext[12]" is stuck at GND
+    Warning (13410): Pin "ciphertext[13]" is stuck at GND
+    Warning (13410): Pin "ciphertext[14]" is stuck at GND
+    Warning (13410): Pin "ciphertext[15]" is stuck at GND
+    Warning (13410): Pin "ciphertext[16]" is stuck at GND
+    Warning (13410): Pin "ciphertext[17]" is stuck at GND
+    Warning (13410): Pin "ciphertext[18]" is stuck at GND
+    Warning (13410): Pin "ciphertext[19]" is stuck at GND
+    Warning (13410): Pin "ciphertext[20]" is stuck at GND
+    Warning (13410): Pin "ciphertext[21]" is stuck at GND
+    Warning (13410): Pin "ciphertext[22]" is stuck at GND
+    Warning (13410): Pin "ciphertext[23]" is stuck at GND
+    Warning (13410): Pin "ciphertext[24]" is stuck at GND
+    Warning (13410): Pin "ciphertext[25]" is stuck at GND
+    Warning (13410): Pin "ciphertext[26]" is stuck at GND
+    Warning (13410): Pin "ciphertext[27]" is stuck at GND
+    Warning (13410): Pin "ciphertext[28]" is stuck at GND
+    Warning (13410): Pin "ciphertext[29]" is stuck at GND
+    Warning (13410): Pin "ciphertext[30]" is stuck at GND
+    Warning (13410): Pin "ciphertext[31]" is stuck at GND
+    Warning (13410): Pin "ciphertext[32]" is stuck at GND
+    Warning (13410): Pin "ciphertext[33]" is stuck at GND
+    Warning (13410): Pin "ciphertext[34]" is stuck at GND
+    Warning (13410): Pin "ciphertext[35]" is stuck at GND
+    Warning (13410): Pin "ciphertext[36]" is stuck at GND
+    Warning (13410): Pin "ciphertext[37]" is stuck at GND
+    Warning (13410): Pin "ciphertext[38]" is stuck at GND
+    Warning (13410): Pin "ciphertext[39]" is stuck at GND
+    Warning (13410): Pin "ciphertext[40]" is stuck at GND
+    Warning (13410): Pin "ciphertext[41]" is stuck at GND
+    Warning (13410): Pin "ciphertext[42]" is stuck at GND
+    Warning (13410): Pin "ciphertext[43]" is stuck at GND
+    Warning (13410): Pin "ciphertext[44]" is stuck at GND
+    Warning (13410): Pin "ciphertext[45]" is stuck at GND
+    Warning (13410): Pin "ciphertext[46]" is stuck at GND
+    Warning (13410): Pin "ciphertext[47]" is stuck at GND
+    Warning (13410): Pin "ciphertext[48]" is stuck at GND
+    Warning (13410): Pin "ciphertext[49]" is stuck at GND
+    Warning (13410): Pin "ciphertext[50]" is stuck at GND
+    Warning (13410): Pin "ciphertext[51]" is stuck at GND
+    Warning (13410): Pin "ciphertext[52]" is stuck at GND
+    Warning (13410): Pin "ciphertext[53]" is stuck at GND
+    Warning (13410): Pin "ciphertext[54]" is stuck at GND
+    Warning (13410): Pin "ciphertext[55]" is stuck at GND
+    Warning (13410): Pin "ciphertext[56]" is stuck at GND
+    Warning (13410): Pin "ciphertext[57]" is stuck at GND
+    Warning (13410): Pin "ciphertext[58]" is stuck at GND
+    Warning (13410): Pin "ciphertext[59]" is stuck at GND
+    Warning (13410): Pin "ciphertext[60]" is stuck at GND
+    Warning (13410): Pin "ciphertext[61]" is stuck at GND
+    Warning (13410): Pin "ciphertext[62]" is stuck at GND
+    Warning (13410): Pin "ciphertext[63]" is stuck at GND
+    Warning (13410): Pin "ciphertext[64]" is stuck at GND
+    Warning (13410): Pin "ciphertext[65]" is stuck at GND
+    Warning (13410): Pin "ciphertext[66]" is stuck at GND
+    Warning (13410): Pin "ciphertext[67]" is stuck at GND
+    Warning (13410): Pin "ciphertext[68]" is stuck at GND
+    Warning (13410): Pin "ciphertext[69]" is stuck at GND
+    Warning (13410): Pin "ciphertext[70]" is stuck at GND
+    Warning (13410): Pin "ciphertext[71]" is stuck at GND
+    Warning (13410): Pin "ciphertext[72]" is stuck at GND
+    Warning (13410): Pin "ciphertext[73]" is stuck at GND
+    Warning (13410): Pin "ciphertext[74]" is stuck at GND
+    Warning (13410): Pin "ciphertext[75]" is stuck at GND
+    Warning (13410): Pin "ciphertext[76]" is stuck at GND
+    Warning (13410): Pin "ciphertext[77]" is stuck at GND
+    Warning (13410): Pin "ciphertext[78]" is stuck at GND
+    Warning (13410): Pin "ciphertext[79]" is stuck at GND
+    Warning (13410): Pin "ciphertext[80]" is stuck at GND
+    Warning (13410): Pin "ciphertext[81]" is stuck at GND
+    Warning (13410): Pin "ciphertext[82]" is stuck at GND
+    Warning (13410): Pin "ciphertext[83]" is stuck at GND
+    Warning (13410): Pin "ciphertext[84]" is stuck at GND
+    Warning (13410): Pin "ciphertext[85]" is stuck at GND
+    Warning (13410): Pin "ciphertext[86]" is stuck at GND
+    Warning (13410): Pin "ciphertext[87]" is stuck at GND
+    Warning (13410): Pin "ciphertext[88]" is stuck at GND
+    Warning (13410): Pin "ciphertext[89]" is stuck at GND
+    Warning (13410): Pin "ciphertext[90]" is stuck at GND
+    Warning (13410): Pin "ciphertext[91]" is stuck at GND
+    Warning (13410): Pin "ciphertext[92]" is stuck at GND
+    Warning (13410): Pin "ciphertext[93]" is stuck at GND
+    Warning (13410): Pin "ciphertext[94]" is stuck at GND
+    Warning (13410): Pin "ciphertext[95]" is stuck at GND
+    Warning (13410): Pin "ciphertext[96]" is stuck at GND
+    Warning (13410): Pin "ciphertext[97]" is stuck at GND
+    Warning (13410): Pin "ciphertext[98]" is stuck at GND
+    Warning (13410): Pin "ciphertext[99]" is stuck at GND
+    Warning (13410): Pin "ciphertext[100]" is stuck at GND
+    Warning (13410): Pin "ciphertext[101]" is stuck at GND
+    Warning (13410): Pin "ciphertext[102]" is stuck at GND
+    Warning (13410): Pin "ciphertext[103]" is stuck at GND
+    Warning (13410): Pin "ciphertext[104]" is stuck at GND
+    Warning (13410): Pin "ciphertext[105]" is stuck at GND
+    Warning (13410): Pin "ciphertext[106]" is stuck at GND
+    Warning (13410): Pin "ciphertext[107]" is stuck at GND
+    Warning (13410): Pin "ciphertext[108]" is stuck at GND
+    Warning (13410): Pin "ciphertext[109]" is stuck at GND
+    Warning (13410): Pin "ciphertext[110]" is stuck at GND
+    Warning (13410): Pin "ciphertext[111]" is stuck at GND
+    Warning (13410): Pin "ciphertext[112]" is stuck at GND
+    Warning (13410): Pin "ciphertext[113]" is stuck at GND
+    Warning (13410): Pin "ciphertext[114]" is stuck at GND
+    Warning (13410): Pin "ciphertext[115]" is stuck at GND
+    Warning (13410): Pin "ciphertext[116]" is stuck at GND
+    Warning (13410): Pin "ciphertext[117]" is stuck at GND
+    Warning (13410): Pin "ciphertext[118]" is stuck at GND
+    Warning (13410): Pin "ciphertext[119]" is stuck at GND
+    Warning (13410): Pin "ciphertext[120]" is stuck at GND
+    Warning (13410): Pin "ciphertext[121]" is stuck at GND
+    Warning (13410): Pin "ciphertext[122]" is stuck at GND
+    Warning (13410): Pin "ciphertext[123]" is stuck at GND
+    Warning (13410): Pin "ciphertext[124]" is stuck at GND
+    Warning (13410): Pin "ciphertext[125]" is stuck at GND
+    Warning (13410): Pin "ciphertext[126]" is stuck at GND
+    Warning (13410): Pin "ciphertext[127]" is stuck at GND
+Warning (21074): Design contains 224 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "plaintext[68]"
+    Warning (15610): No output dependent on input pin "plaintext[65]"
+    Warning (15610): No output dependent on input pin "plaintext[70]"
+    Warning (15610): No output dependent on input pin "plaintext[67]"
+    Warning (15610): No output dependent on input pin "plaintext[64]"
+    Warning (15610): No output dependent on input pin "plaintext[66]"
+    Warning (15610): No output dependent on input pin "plaintext[71]"
+    Warning (15610): No output dependent on input pin "plaintext[69]"
+    Warning (15610): No output dependent on input pin "plaintext[22]"
+    Warning (15610): No output dependent on input pin "plaintext[17]"
+    Warning (15610): No output dependent on input pin "plaintext[18]"
+    Warning (15610): No output dependent on input pin "plaintext[20]"
+    Warning (15610): No output dependent on input pin "plaintext[23]"
+    Warning (15610): No output dependent on input pin "plaintext[19]"
+    Warning (15610): No output dependent on input pin "plaintext[21]"
+    Warning (15610): No output dependent on input pin "plaintext[16]"
+    Warning (15610): No output dependent on input pin "plaintext[62]"
+    Warning (15610): No output dependent on input pin "plaintext[57]"
+    Warning (15610): No output dependent on input pin "plaintext[58]"
+    Warning (15610): No output dependent on input pin "plaintext[60]"
+    Warning (15610): No output dependent on input pin "plaintext[63]"
+    Warning (15610): No output dependent on input pin "plaintext[59]"
+    Warning (15610): No output dependent on input pin "plaintext[61]"
+    Warning (15610): No output dependent on input pin "plaintext[56]"
+    Warning (15610): No output dependent on input pin "plaintext[110]"
+    Warning (15610): No output dependent on input pin "plaintext[105]"
+    Warning (15610): No output dependent on input pin "plaintext[106]"
+    Warning (15610): No output dependent on input pin "plaintext[108]"
+    Warning (15610): No output dependent on input pin "plaintext[111]"
+    Warning (15610): No output dependent on input pin "plaintext[107]"
+    Warning (15610): No output dependent on input pin "plaintext[109]"
+    Warning (15610): No output dependent on input pin "plaintext[104]"
+    Warning (15610): No output dependent on input pin "plaintext[100]"
+    Warning (15610): No output dependent on input pin "plaintext[97]"
+    Warning (15610): No output dependent on input pin "plaintext[102]"
+    Warning (15610): No output dependent on input pin "plaintext[99]"
+    Warning (15610): No output dependent on input pin "plaintext[96]"
+    Warning (15610): No output dependent on input pin "plaintext[98]"
+    Warning (15610): No output dependent on input pin "plaintext[103]"
+    Warning (15610): No output dependent on input pin "plaintext[101]"
+    Warning (15610): No output dependent on input pin "plaintext[14]"
+    Warning (15610): No output dependent on input pin "plaintext[9]"
+    Warning (15610): No output dependent on input pin "plaintext[10]"
+    Warning (15610): No output dependent on input pin "plaintext[12]"
+    Warning (15610): No output dependent on input pin "plaintext[15]"
+    Warning (15610): No output dependent on input pin "plaintext[11]"
+    Warning (15610): No output dependent on input pin "plaintext[13]"
+    Warning (15610): No output dependent on input pin "plaintext[8]"
+    Warning (15610): No output dependent on input pin "plaintext[54]"
+    Warning (15610): No output dependent on input pin "plaintext[49]"
+    Warning (15610): No output dependent on input pin "plaintext[50]"
+    Warning (15610): No output dependent on input pin "plaintext[52]"
+    Warning (15610): No output dependent on input pin "plaintext[55]"
+    Warning (15610): No output dependent on input pin "plaintext[51]"
+    Warning (15610): No output dependent on input pin "plaintext[53]"
+    Warning (15610): No output dependent on input pin "plaintext[48]"
+    Warning (15610): No output dependent on input pin "plaintext[94]"
+    Warning (15610): No output dependent on input pin "plaintext[89]"
+    Warning (15610): No output dependent on input pin "plaintext[90]"
+    Warning (15610): No output dependent on input pin "plaintext[92]"
+    Warning (15610): No output dependent on input pin "plaintext[95]"
+    Warning (15610): No output dependent on input pin "plaintext[91]"
+    Warning (15610): No output dependent on input pin "plaintext[93]"
+    Warning (15610): No output dependent on input pin "plaintext[88]"
+    Warning (15610): No output dependent on input pin "key[100]"
+    Warning (15610): No output dependent on input pin "plaintext[38]"
+    Warning (15610): No output dependent on input pin "plaintext[33]"
+    Warning (15610): No output dependent on input pin "plaintext[34]"
+    Warning (15610): No output dependent on input pin "plaintext[36]"
+    Warning (15610): No output dependent on input pin "plaintext[39]"
+    Warning (15610): No output dependent on input pin "plaintext[35]"
+    Warning (15610): No output dependent on input pin "plaintext[37]"
+    Warning (15610): No output dependent on input pin "plaintext[32]"
+    Warning (15610): No output dependent on input pin "plaintext[30]"
+    Warning (15610): No output dependent on input pin "plaintext[25]"
+    Warning (15610): No output dependent on input pin "plaintext[26]"
+    Warning (15610): No output dependent on input pin "plaintext[28]"
+    Warning (15610): No output dependent on input pin "plaintext[31]"
+    Warning (15610): No output dependent on input pin "plaintext[27]"
+    Warning (15610): No output dependent on input pin "plaintext[29]"
+    Warning (15610): No output dependent on input pin "plaintext[24]"
+    Warning (15610): No output dependent on input pin "plaintext[78]"
+    Warning (15610): No output dependent on input pin "plaintext[73]"
+    Warning (15610): No output dependent on input pin "plaintext[74]"
+    Warning (15610): No output dependent on input pin "plaintext[76]"
+    Warning (15610): No output dependent on input pin "plaintext[79]"
+    Warning (15610): No output dependent on input pin "plaintext[75]"
+    Warning (15610): No output dependent on input pin "plaintext[77]"
+    Warning (15610): No output dependent on input pin "plaintext[72]"
+    Warning (15610): No output dependent on input pin "plaintext[118]"
+    Warning (15610): No output dependent on input pin "plaintext[113]"
+    Warning (15610): No output dependent on input pin "plaintext[114]"
+    Warning (15610): No output dependent on input pin "plaintext[116]"
+    Warning (15610): No output dependent on input pin "plaintext[119]"
+    Warning (15610): No output dependent on input pin "plaintext[115]"
+    Warning (15610): No output dependent on input pin "plaintext[117]"
+    Warning (15610): No output dependent on input pin "plaintext[112]"
+    Warning (15610): No output dependent on input pin "key[97]"
+    Warning (15610): No output dependent on input pin "key[102]"
+    Warning (15610): No output dependent on input pin "key[99]"
+    Warning (15610): No output dependent on input pin "key[96]"
+    Warning (15610): No output dependent on input pin "key[98]"
+    Warning (15610): No output dependent on input pin "key[103]"
+    Warning (15610): No output dependent on input pin "key[101]"
+    Warning (15610): No output dependent on input pin "plaintext[6]"
+    Warning (15610): No output dependent on input pin "key[6]"
+    Warning (15610): No output dependent on input pin "plaintext[1]"
+    Warning (15610): No output dependent on input pin "key[1]"
+    Warning (15610): No output dependent on input pin "plaintext[2]"
+    Warning (15610): No output dependent on input pin "key[2]"
+    Warning (15610): No output dependent on input pin "plaintext[4]"
+    Warning (15610): No output dependent on input pin "key[4]"
+    Warning (15610): No output dependent on input pin "plaintext[7]"
+    Warning (15610): No output dependent on input pin "key[7]"
+    Warning (15610): No output dependent on input pin "plaintext[3]"
+    Warning (15610): No output dependent on input pin "key[3]"
+    Warning (15610): No output dependent on input pin "plaintext[5]"
+    Warning (15610): No output dependent on input pin "key[5]"
+    Warning (15610): No output dependent on input pin "plaintext[0]"
+    Warning (15610): No output dependent on input pin "key[0]"
+    Warning (15610): No output dependent on input pin "plaintext[46]"
+    Warning (15610): No output dependent on input pin "plaintext[41]"
+    Warning (15610): No output dependent on input pin "plaintext[42]"
+    Warning (15610): No output dependent on input pin "plaintext[44]"
+    Warning (15610): No output dependent on input pin "plaintext[47]"
+    Warning (15610): No output dependent on input pin "plaintext[43]"
+    Warning (15610): No output dependent on input pin "plaintext[45]"
+    Warning (15610): No output dependent on input pin "plaintext[40]"
+    Warning (15610): No output dependent on input pin "plaintext[86]"
+    Warning (15610): No output dependent on input pin "plaintext[81]"
+    Warning (15610): No output dependent on input pin "plaintext[82]"
+    Warning (15610): No output dependent on input pin "plaintext[84]"
+    Warning (15610): No output dependent on input pin "plaintext[87]"
+    Warning (15610): No output dependent on input pin "plaintext[83]"
+    Warning (15610): No output dependent on input pin "plaintext[85]"
+    Warning (15610): No output dependent on input pin "plaintext[80]"
+    Warning (15610): No output dependent on input pin "plaintext[126]"
+    Warning (15610): No output dependent on input pin "plaintext[121]"
+    Warning (15610): No output dependent on input pin "plaintext[122]"
+    Warning (15610): No output dependent on input pin "plaintext[124]"
+    Warning (15610): No output dependent on input pin "plaintext[127]"
+    Warning (15610): No output dependent on input pin "plaintext[123]"
+    Warning (15610): No output dependent on input pin "plaintext[125]"
+    Warning (15610): No output dependent on input pin "plaintext[120]"
+    Warning (15610): No output dependent on input pin "key[22]"
+    Warning (15610): No output dependent on input pin "key[54]"
+    Warning (15610): No output dependent on input pin "key[86]"
+    Warning (15610): No output dependent on input pin "key[17]"
+    Warning (15610): No output dependent on input pin "key[49]"
+    Warning (15610): No output dependent on input pin "key[81]"
+    Warning (15610): No output dependent on input pin "key[18]"
+    Warning (15610): No output dependent on input pin "key[50]"
+    Warning (15610): No output dependent on input pin "key[82]"
+    Warning (15610): No output dependent on input pin "key[20]"
+    Warning (15610): No output dependent on input pin "key[52]"
+    Warning (15610): No output dependent on input pin "key[84]"
+    Warning (15610): No output dependent on input pin "key[23]"
+    Warning (15610): No output dependent on input pin "key[55]"
+    Warning (15610): No output dependent on input pin "key[87]"
+    Warning (15610): No output dependent on input pin "key[19]"
+    Warning (15610): No output dependent on input pin "key[51]"
+    Warning (15610): No output dependent on input pin "key[83]"
+    Warning (15610): No output dependent on input pin "key[21]"
+    Warning (15610): No output dependent on input pin "key[53]"
+    Warning (15610): No output dependent on input pin "key[85]"
+    Warning (15610): No output dependent on input pin "key[16]"
+    Warning (15610): No output dependent on input pin "key[48]"
+    Warning (15610): No output dependent on input pin "key[80]"
+    Warning (15610): No output dependent on input pin "key[14]"
+    Warning (15610): No output dependent on input pin "key[46]"
+    Warning (15610): No output dependent on input pin "key[78]"
+    Warning (15610): No output dependent on input pin "key[9]"
+    Warning (15610): No output dependent on input pin "key[41]"
+    Warning (15610): No output dependent on input pin "key[73]"
+    Warning (15610): No output dependent on input pin "key[10]"
+    Warning (15610): No output dependent on input pin "key[42]"
+    Warning (15610): No output dependent on input pin "key[74]"
+    Warning (15610): No output dependent on input pin "key[12]"
+    Warning (15610): No output dependent on input pin "key[44]"
+    Warning (15610): No output dependent on input pin "key[76]"
+    Warning (15610): No output dependent on input pin "key[15]"
+    Warning (15610): No output dependent on input pin "key[47]"
+    Warning (15610): No output dependent on input pin "key[79]"
+    Warning (15610): No output dependent on input pin "key[11]"
+    Warning (15610): No output dependent on input pin "key[43]"
+    Warning (15610): No output dependent on input pin "key[75]"
+    Warning (15610): No output dependent on input pin "key[13]"
+    Warning (15610): No output dependent on input pin "key[45]"
+    Warning (15610): No output dependent on input pin "key[77]"
+    Warning (15610): No output dependent on input pin "key[8]"
+    Warning (15610): No output dependent on input pin "key[40]"
+    Warning (15610): No output dependent on input pin "key[72]"
+    Warning (15610): No output dependent on input pin "key[118]"
+    Warning (15610): No output dependent on input pin "key[113]"
+    Warning (15610): No output dependent on input pin "key[114]"
+    Warning (15610): No output dependent on input pin "key[116]"
+    Warning (15610): No output dependent on input pin "key[119]"
+    Warning (15610): No output dependent on input pin "key[115]"
+    Warning (15610): No output dependent on input pin "key[117]"
+    Warning (15610): No output dependent on input pin "key[112]"
+    Warning (15610): No output dependent on input pin "key[38]"
+    Warning (15610): No output dependent on input pin "key[70]"
+    Warning (15610): No output dependent on input pin "key[33]"
+    Warning (15610): No output dependent on input pin "key[65]"
+    Warning (15610): No output dependent on input pin "key[34]"
+    Warning (15610): No output dependent on input pin "key[66]"
+    Warning (15610): No output dependent on input pin "key[36]"
+    Warning (15610): No output dependent on input pin "key[68]"
+    Warning (15610): No output dependent on input pin "key[39]"
+    Warning (15610): No output dependent on input pin "key[71]"
+    Warning (15610): No output dependent on input pin "key[35]"
+    Warning (15610): No output dependent on input pin "key[67]"
+    Warning (15610): No output dependent on input pin "key[37]"
+    Warning (15610): No output dependent on input pin "key[69]"
+    Warning (15610): No output dependent on input pin "key[32]"
+    Warning (15610): No output dependent on input pin "key[64]"
+    Warning (15610): No output dependent on input pin "key[110]"
+    Warning (15610): No output dependent on input pin "key[105]"
+    Warning (15610): No output dependent on input pin "key[106]"
+    Warning (15610): No output dependent on input pin "key[108]"
+    Warning (15610): No output dependent on input pin "key[111]"
+    Warning (15610): No output dependent on input pin "key[107]"
+    Warning (15610): No output dependent on input pin "key[109]"
+    Warning (15610): No output dependent on input pin "key[104]"
+Info (21057): Implemented 392 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 256 input pins
     Info (21059): Implemented 128 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4600 megabytes
-    Info: Processing ended: Mon May 13 11:54:47 2024
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info (21061): Implemented 8 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 361 warnings
+    Info: Peak virtual memory: 4636 megabytes
+    Info: Processing ended: Mon May 13 19:32:30 2024
+    Info: Elapsed time: 00:04:48
+    Info: Total CPU time (on all processors): 00:02:35
 
 

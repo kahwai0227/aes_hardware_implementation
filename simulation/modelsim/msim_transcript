@@ -10,53 +10,111 @@
 # ** Warning: Copied D:\altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -sv -work work +incdir+D:/altera/13.1/aes_algo {D:/altera/13.1/aes_algo/pt2sm.sv}
+# vlog -sv -work work +incdir+D:/Projects/aes_hardware_implementation {D:/Projects/aes_hardware_implementation/pt2sm.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module pt2sm
 # 
 # Top level modules:
 # 	pt2sm
-# 
-# vlog -sv -work work +incdir+D:/altera/13.1/aes_algo {D:/altera/13.1/aes_algo/pt2sm_tb.sv}
+# vlog -sv -work work +incdir+D:/Projects/aes_hardware_implementation {D:/Projects/aes_hardware_implementation/subBytes.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module pt2sm_tb
+# -- Compiling module subBytes
 # 
 # Top level modules:
-# 	pt2sm_tb
+# 	subBytes
+# vlog -sv -work work +incdir+D:/Projects/aes_hardware_implementation {D:/Projects/aes_hardware_implementation/mixColumns.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module mixColumns
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L maxv_ver -L rtl_work -L work -voptargs="+acc"  pt2sm_tb
-# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L maxv_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps pt2sm_tb 
+# Top level modules:
+# 	mixColumns
+# vlog -sv -work work +incdir+D:/Projects/aes_hardware_implementation {D:/Projects/aes_hardware_implementation/addRoundKey.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module addRoundKey
+# 
+# Top level modules:
+# 	addRoundKey
+# vlog -sv -work work +incdir+D:/Projects/aes_hardware_implementation {D:/Projects/aes_hardware_implementation/roundKeyGenerator.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module roundKeyGenerator
+# 
+# Top level modules:
+# 	roundKeyGenerator
+# vlog -sv -work work +incdir+D:/Projects/aes_hardware_implementation {D:/Projects/aes_hardware_implementation/shiftRows.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module shiftRows
+# 
+# Top level modules:
+# 	shiftRows
+# vlog -sv -work work +incdir+D:/Projects/aes_hardware_implementation {D:/Projects/aes_hardware_implementation/initialRound.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module initialRound
+# 
+# Top level modules:
+# 	initialRound
+# vlog -sv -work work +incdir+D:/Projects/aes_hardware_implementation {D:/Projects/aes_hardware_implementation/round.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module round
+# 
+# Top level modules:
+# 	round
+# vlog -sv -work work +incdir+D:/Projects/aes_hardware_implementation {D:/Projects/aes_hardware_implementation/finalRound.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module finalRound
+# 
+# Top level modules:
+# 	finalRound
+# vlog -sv -work work +incdir+D:/Projects/aes_hardware_implementation {D:/Projects/aes_hardware_implementation/aes_top.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module aes_top
+# 
+# Top level modules:
+# 	aes_top
+# 
+# vlog -sv -work work +incdir+D:/Projects/aes_hardware_implementation {D:/Projects/aes_hardware_implementation/aes_testbench.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module aes_testbench
+# 
+# Top level modules:
+# 	aes_testbench
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L maxv_ver -L rtl_work -L work -voptargs="+acc"  aes_top
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L maxv_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps aes_top 
 # Loading sv_std.std
-# Loading work.pt2sm_tb
+# Loading work.aes_top
+# Loading work.roundKeyGenerator
 # Loading work.pt2sm
+# Loading work.initialRound
+# ** Error: (vsim-3037) D:/Projects/aes_hardware_implementation/initialRound.sv(7): Missing instance name in instantiation of 'addRoundKey'.
 # 
-# add wave *
-# view structure
-# .main_pane.structure.interior.cs.body.struct
-# view signals
-# .main_pane.objects.interior.cs.body.tree
-# run -all
-# State Matrix:
-# [0][0]: ff
-# [0][1]: bb
-# [0][2]: 77
-# [0][3]: 33
-# [1][0]: ee
-# [1][1]: aa
-# [1][2]: 66
-# [1][3]: 22
-# [2][0]: dd
-# [2][1]: 99
-# [2][2]: 55
-# [2][3]: 11
-# [3][0]: cc
-# [3][1]: 88
-# [3][2]: 44
-# [3][3]: 00
-# ** Note: $finish    : D:/altera/13.1/aes_algo/pt2sm_tb.sv(35)
-#    Time: 10 ps  Iteration: 0  Instance: /pt2sm_tb
-# 1
-# Break in Module pt2sm_tb at D:/altera/13.1/aes_algo/pt2sm_tb.sv line 35
-# Simulation Breakpoint: 1
-# Break in Module pt2sm_tb at D:/altera/13.1/aes_algo/pt2sm_tb.sv line 35
-# MACRO ./aes_algo_run_msim_rtl_verilog.do PAUSED at line 17
+#         Region: /aes_top/r0
+# Loading work.round
+# Loading work.subBytes
+# Loading work.shiftRows
+# Loading work.mixColumns
+# Loading work.addRoundKey
+# Loading work.finalRound
+# Error loading design
+# Error: Error loading design 
+#        Pausing macro execution 
+# MACRO ./aes_algo_run_msim_rtl_verilog.do PAUSED at line 21
+vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L maxv_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps rtl_work.aes_top
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L maxv_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps rtl_work.aes_top 
+# Loading sv_std.std
+# Loading work.aes_top
+# Loading work.roundKeyGenerator
+# Loading work.pt2sm
+# Loading work.initialRound
+# ** Error: (vsim-3037) D:/Projects/aes_hardware_implementation/initialRound.sv(7): Missing instance name in instantiation of 'addRoundKey'.
+# 
+#         Region: /aes_top/r0
+# Loading work.round
+# Loading work.subBytes
+# Loading work.shiftRows
+# Loading work.mixColumns
+# Loading work.addRoundKey
+# Loading work.finalRound
+# Error loading design
+# Error: Error loading design 
+#        Pausing macro execution 
+# MACRO ./aes_algo_run_msim_rtl_verilog.do PAUSED at line 21

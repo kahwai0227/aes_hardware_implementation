@@ -1,10 +1,10 @@
 module subBytes (
-    input [7:0] state_byte,
-    output reg [7:0] substituted_byte
+    input [7:0] state_matrix [0:3][0:3],
+    output reg [7:0] substituted_matrix [0:3][0:3]
 );
 
 // Define substitution box (S-box)
-reg [7:0] s_box [0:255] = {
+reg [7:0] s_box [0:255] = '{
     8'h63, 8'h7c, 8'h77, 8'h7b, 8'hf2, 8'h6b, 8'h6f, 8'hc5,
     8'h30, 8'h01, 8'h67, 8'h2b, 8'hfe, 8'hd7, 8'hab, 8'h76,
     8'hca, 8'h82, 8'hc9, 8'h7d, 8'hfa, 8'h59, 8'h47, 8'hf0,
@@ -41,7 +41,11 @@ reg [7:0] s_box [0:255] = {
 
 // SubBytes operation: Replace byte with corresponding value from S-box
 always @* begin
-    substituted_byte = s_box[state_byte];
+for (int col = 0; col < 4; col = col + 1) begin
+        for (int row = 0; row < 4; row = row + 1) begin
+				substituted_matrix[row][col] = s_box[state_matrix[row][col]];
+        end
+    end
 end
 
 endmodule

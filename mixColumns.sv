@@ -4,11 +4,11 @@ module mixColumns (
 );
 
 // Define the fixed matrix for MixColumns
-parameter [7:0] mix_matrix [0:3][0:3] = {
-    {8'h02, 8'h03, 8'h01, 8'h01},
-    {8'h01, 8'h02, 8'h03, 8'h01},
-    {8'h01, 8'h01, 8'h02, 8'h03},
-    {8'h03, 8'h01, 8'h01, 8'h02}
+reg [7:0] mix_matrix [0:3][0:3] = '{
+    '{8'h02, 8'h03, 8'h01, 8'h01},
+    '{8'h01, 8'h02, 8'h03, 8'h01},
+    '{8'h01, 8'h01, 8'h02, 8'h03},
+    '{8'h03, 8'h01, 8'h01, 8'h02}
 };
 
 // Perform MixColumns operation
