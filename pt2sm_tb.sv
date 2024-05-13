@@ -1,0 +1,38 @@
+module pt2sm_tb;
+
+// Parameters
+parameter DATA_WIDTH = 128; // Width of the plaintext input
+
+// Inputs
+reg [DATA_WIDTH-1:0] plaintext;
+
+// Outputs
+wire [7:0] state_matrix [0:3][0:3];
+
+// Instantiate the module under test
+pt2sm dut (
+    .plaintext(plaintext),
+    .state_matrix(state_matrix)
+);
+
+// Test procedure
+initial begin
+    // Initialize plaintext with test value
+    plaintext = 128'h00112233445566778899AABBCCDDEEFF;
+
+    // Wait for some time for the conversion to take place
+    #10;
+
+    // Display state matrix
+    $display("State Matrix:");
+    for (int i = 0; i < 4; i = i + 1) begin
+        for (int j = 0; j < 4; j = j + 1) begin
+            $display("[%0d][%0d]: %h", i, j, state_matrix[i][j]);
+        end
+    end
+
+    // End simulation
+    $finish;
+end
+
+endmodule

@@ -1,0 +1,390 @@
+ -- Copyright (C) 1991-2013 Altera Corporation
+ -- Your use of Altera Corporation's design tools, logic functions 
+ -- and other software and tools, and its AMPP partner logic 
+ -- functions, and any output files from any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Altera Program License 
+ -- Subscription Agreement, Altera MegaCore Function License 
+ -- Agreement, or other applicable license agreement, including, 
+ -- without limitation, that your use is for the sole purpose of 
+ -- programming logic devices manufactured by Altera and sold by 
+ -- Altera or its authorized distributors.  Please refer to the 
+ -- applicable agreement for further details.
+ -- 
+ -- This is a Quartus II output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus II input file. This file cannot be used
+ -- to make Quartus II pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus II help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- DNU           : Do Not Use. This pin MUST NOT be connected.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (1.8V).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
+ --                 of its bank.
+ --					Bank 1:		3.3V
+ --					Bank 2:		3.3V
+ --					Bank 3:		3.3V
+ --					Bank 4:		3.3V
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --					It can also be used to report unused dedicated pins. The connection
+ --					on the board for unused dedicated pins depends on whether this will
+ --					be used in a future design. One example is device migration. When
+ --					using device migration, refer to the device pin-tables. If it is a
+ --					GND pin in the pin table or if it will not be used in a future design
+ --					for another purpose the it MUST be connected to GND. If it is an unused
+ --					dedicated pin, then it can be connected to a valid signal on the board
+ --					(low, high, or toggling) if that signal is required for a different
+ --					revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --					This pin should be connected to GND. It may also be connected  to a
+ --					valid signal  on the board  (low, high, or toggling)  if that signal
+ --					is required for a different revision of the design.
+ -- GND*          : Unused  I/O  pin. Connect each pin marked GND* directly to GND
+ --           	    or leave it unconnected.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ -- RESERVED_OUTPUT_DRIVEN_HIGH        : Pin is output driven high.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- Pin directions (input, output or bidir) are based on device operating in user mode.
+ ---------------------------------------------------------------------------------
+
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+CHIP  "aes_algo"  ASSIGNED TO AN: 5M2210ZF324I5
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+GNDIO                        : A1        : gnd    :                   :         :           :                
+state_matrix[0][1][5]        : A2        : output : 3.3-V LVTTL       :         : 2         : N              
+VCCIO2                       : A3        : power  :                   : 3.3V    : 2         :                
+state_matrix[3][0][0]        : A4        : output : 3.3-V LVTTL       :         : 2         : N              
+plaintext[18]                : A5        : input  : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[2][0][2]        : A6        : output : 3.3-V LVTTL       :         : 2         : N              
+plaintext[87]                : A7        : input  : 3.3-V LVTTL       :         : 2         : N              
+plaintext[101]               : A8        : input  : 3.3-V LVTTL       :         : 2         : N              
+plaintext[16]                : A9        : input  : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[2][0][0]        : A10       : output : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[3][3][4]        : A11       : output : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[0][0][1]        : A12       : output : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[1][3][7]        : A13       : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : A14       :        :                   :         : 2         :                
+plaintext[90]                : A15       : input  : 3.3-V LVTTL       :         : 2         : N              
+VCCIO2                       : A16       : power  :                   : 3.3V    : 2         :                
+plaintext[74]                : A17       : input  : 3.3-V LVTTL       :         : 2         : N              
+GNDIO                        : A18       : gnd    :                   :         :           :                
+plaintext[69]                : B1        : input  : 3.3-V LVTTL       :         : 2         : N              
+GNDIO                        : B2        : gnd    :                   :         :           :                
+state_matrix[0][2][5]        : B3        : output : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[1][0][4]        : B4        : output : 3.3-V LVTTL       :         : 2         : N              
+plaintext[35]                : B5        : input  : 3.3-V LVTTL       :         : 2         : N              
+plaintext[19]                : B6        : input  : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[2][2][7]        : B7        : output : 3.3-V LVTTL       :         : 2         : N              
+plaintext[55]                : B8        : input  : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[0][3][5]        : B9        : output : 3.3-V LVTTL       :         : 2         : N              
+plaintext[33]                : B10       : input  : 3.3-V LVTTL       :         : 2         : N              
+plaintext[76]                : B11       : input  : 3.3-V LVTTL       :         : 2         : N              
+plaintext[1]                 : B12       : input  : 3.3-V LVTTL       :         : 2         : N              
+plaintext[111]               : B13       : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : B14       :        :                   :         : 2         :                
+plaintext[49]                : B15       : input  : 3.3-V LVTTL       :         : 2         : N              
+plaintext[36]                : B16       : input  : 3.3-V LVTTL       :         : 2         : N              
+GNDIO                        : B17       : gnd    :                   :         :           :                
+state_matrix[1][2][2]        : B18       : output : 3.3-V LVTTL       :         : 2         : N              
+VCCIO1                       : C1        : power  :                   : 3.3V    : 1         :                
+state_matrix[1][3][3]        : C2        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[84]                : C3        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[24]                : C4        : input  : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[0][1][3]        : C5        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : C6        :        :                   :         : 2         :                
+plaintext[70]                : C7        : input  : 3.3-V LVTTL       :         : 2         : N              
+plaintext[60]                : C8        : input  : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[2][3][0]        : C9        : output : 3.3-V LVTTL       :         : 2         : N              
+plaintext[124]               : C10       : input  : 3.3-V LVTTL       :         : 2         : N              
+plaintext[83]                : C11       : input  : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[0][3][6]        : C12       : output : 3.3-V LVTTL       :         : 2         : N              
+plaintext[66]                : C13       : input  : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[3][2][2]        : C14       : output : 3.3-V LVTTL       :         : 2         : N              
+plaintext[68]                : C15       : input  : 3.3-V LVTTL       :         : 2         : N              
+plaintext[45]                : C16       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[1][1][5]        : C17       : output : 3.3-V LVTTL       :         : 3         : N              
+VCCIO3                       : C18       : power  :                   : 3.3V    : 3         :                
+state_matrix[3][2][0]        : D1        : output : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[2][2][4]        : D2        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[82]                : D3        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[88]                : D4        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[37]                : D5        : input  : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[0][0][7]        : D6        : output : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[1][2][7]        : D7        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : D8        :        :                   :         : 2         :                
+state_matrix[0][1][1]        : D9        : output : 3.3-V LVTTL       :         : 2         : N              
+plaintext[112]               : D10       : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : D11       :        :                   :         : 2         :                
+state_matrix[0][2][7]        : D12       : output : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[0][2][4]        : D13       : output : 3.3-V LVTTL       :         : 2         : N              
+plaintext[59]                : D14       : input  : 3.3-V LVTTL       :         : 2         : N              
+plaintext[98]                : D15       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[3][1][3]        : D16       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[3][1][2]        : D17       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[3][1][7]        : D18       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[1][0][7]        : E1        : output : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[2][2][2]        : E2        : output : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[3][1][5]        : E3        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[61]                : E4        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[116]               : E5        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[7]                 : E6        : input  : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[0][2][6]        : E7        : output : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[2][0][3]        : E8        : output : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[2][1][7]        : E9        : output : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[2][2][3]        : E10       : output : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[0][2][2]        : E11       : output : 3.3-V LVTTL       :         : 2         : N              
+plaintext[71]                : E12       : input  : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[0][1][4]        : E13       : output : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[1][2][5]        : E14       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[77]                : E15       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[63]                : E16       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[3][2][4]        : E17       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[2][0][4]        : E18       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[15]                : F1        : input  : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[2][3][4]        : F2        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[107]               : F3        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[39]                : F4        : input  : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[3][1][1]        : F5        : output : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[2][0][1]        : F6        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[12]                : F7        : input  : 3.3-V LVTTL       :         : 2         : N              
+plaintext[79]                : F8        : input  : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[3][1][4]        : F9        : output : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[1][2][4]        : F10       : output : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[2][1][1]        : F11       : output : 3.3-V LVTTL       :         : 2         : N              
+plaintext[102]               : F12       : input  : 3.3-V LVTTL       :         : 2         : N              
+state_matrix[2][2][5]        : F13       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[0][2][1]        : F14       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[0][3][2]        : F15       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[58]                : F16       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[92]                : F17       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[20]                : F18       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[67]                : G1        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[17]                : G2        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[57]                : G3        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[4]                 : G4        : input  : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[2][0][6]        : G5        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[22]                : G6        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[13]                : G7        : input  : 3.3-V LVTTL       :         : 1         : N              
+GNDINT                       : G8        : gnd    :                   :         :           :                
+VCCIO2                       : G9        : power  :                   : 3.3V    : 2         :                
+VCCIO2                       : G10       : power  :                   : 3.3V    : 2         :                
+VCCINT                       : G11       : power  :                   : 1.8V    :           :                
+state_matrix[0][3][1]        : G12       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[105]               : G13       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[85]                : G14       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[65]                : G15       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[1][2][0]        : G16       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[1][3][1]        : G17       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[72]                : G18       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[0][2][3]        : H1        : output : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[2][3][2]        : H2        : output : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[0][1][7]        : H3        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[46]                : H4        : input  : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[2][2][0]        : H5        : output : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[1][1][6]        : H6        : output : 3.3-V LVTTL       :         : 1         : N              
+GNDINT                       : H7        : gnd    :                   :         :           :                
+GNDIO                        : H8        : gnd    :                   :         :           :                
+GNDIO                        : H9        : gnd    :                   :         :           :                
+GNDIO                        : H10       : gnd    :                   :         :           :                
+GNDIO                        : H11       : gnd    :                   :         :           :                
+VCCINT                       : H12       : power  :                   : 1.8V    :           :                
+plaintext[42]                : H13       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[1][1][2]        : H14       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[94]                : H15       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[97]                : H16       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[50]                : H17       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[31]                : H18       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[1][0][5]        : J1        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : J2        :        :                   :         : 1         :                
+state_matrix[0][0][4]        : J3        : output : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[1][1][0]        : J4        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[73]                : J5        : input  : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[0][1][0]        : J6        : output : 3.3-V LVTTL       :         : 1         : N              
+VCCIO1                       : J7        : power  :                   : 3.3V    : 1         :                
+GNDINT                       : J8        : gnd    :                   :         :           :                
+VCCINT                       : J9        : power  :                   : 1.8V    :           :                
+GNDINT                       : J10       : gnd    :                   :         :           :                
+VCCINT                       : J11       : power  :                   : 1.8V    :           :                
+VCCIO3                       : J12       : power  :                   : 3.3V    : 3         :                
+state_matrix[2][1][0]        : J13       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[26]                : J14       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[3][0][7]        : J15       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[3][2][6]        : J16       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[3][0][2]        : J17       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[2][1][2]        : J18       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[80]                : K1        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[32]                : K2        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[119]               : K3        : input  : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[2][2][1]        : K4        : output : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[3][3][7]        : K5        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[114]               : K6        : input  : 3.3-V LVTTL       :         : 1         : N              
+VCCIO1                       : K7        : power  :                   : 3.3V    : 1         :                
+VCCINT                       : K8        : power  :                   : 1.8V    :           :                
+GNDINT                       : K9        : gnd    :                   :         :           :                
+VCCINT                       : K10       : power  :                   : 1.8V    :           :                
+GNDINT                       : K11       : gnd    :                   :         :           :                
+VCCIO3                       : K12       : power  :                   : 3.3V    : 3         :                
+plaintext[47]                : K13       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[48]                : K14       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[62]                : K15       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[2][3][6]        : K16       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[122]               : K17       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[1][1][7]        : K18       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[2][3][7]        : L1        : output : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[3][0][1]        : L2        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[40]                : L3        : input  : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : L4        :        :                   :         : 1         :                
+plaintext[127]               : L5        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[25]                : L6        : input  : 3.3-V LVTTL       :         : 1         : N              
+VCCINT                       : L7        : power  :                   : 1.8V    :           :                
+GNDIO                        : L8        : gnd    :                   :         :           :                
+GNDIO                        : L9        : gnd    :                   :         :           :                
+GNDIO                        : L10       : gnd    :                   :         :           :                
+GNDIO                        : L11       : gnd    :                   :         :           :                
+GNDINT                       : L12       : gnd    :                   :         :           :                
+state_matrix[3][1][6]        : L13       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[11]                : L14       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[118]               : L15       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[0][0][0]        : L16       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[1][0][3]        : L17       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[93]                : L18       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[81]                : M1        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[78]                : M2        : input  : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[1][2][6]        : M3        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[8]                 : M4        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[2]                 : M5        : input  : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[0][0][2]        : M6        : output : 3.3-V LVTTL       :         : 1         : N              
+TDI                          : M7        : input  :                   :         : 1         :                
+VCCINT                       : M8        : power  :                   : 1.8V    :           :                
+VCCIO4                       : M9        : power  :                   : 3.3V    : 4         :                
+VCCIO4                       : M10       : power  :                   : 3.3V    : 4         :                
+GNDINT                       : M11       : gnd    :                   :         :           :                
+plaintext[96]                : M12       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[0][3][0]        : M13       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[1][0][1]        : M14       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[121]               : M15       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[3][2][7]        : M16       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[3][3][2]        : M17       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[3][2][5]        : M18       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[1][2][1]        : N1        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[100]               : N2        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[110]               : N3        : input  : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[1][3][6]        : N4        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[29]                : N5        : input  : 3.3-V LVTTL       :         : 1         : N              
+TDO                          : N6        : output :                   :         : 1         :                
+GND*                         : N7        :        :                   :         : 4         :                
+GND*                         : N8        :        :                   :         : 4         :                
+plaintext[115]               : N9        : input  : 3.3-V LVTTL       :         : 4         : N              
+plaintext[51]                : N10       : input  : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[3][0][3]        : N11       : output : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[1][1][3]        : N12       : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : N13       :        :                   :         : 3         :                
+state_matrix[3][1][0]        : N14       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[9]                 : N15       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[3][3][1]        : N16       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[1][1][4]        : N17       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[0]                 : N18       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[2][1][5]        : P1        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[126]               : P2        : input  : 3.3-V LVTTL       :         : 1         : N              
+plaintext[53]                : P3        : input  : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[3][0][5]        : P4        : output : 3.3-V LVTTL       :         : 1         : N              
+TMS                          : P5        : input  :                   :         : 1         :                
+plaintext[21]                : P6        : input  : 3.3-V LVTTL       :         : 4         : N              
+plaintext[86]                : P7        : input  : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[0][1][6]        : P8        : output : 3.3-V LVTTL       :         : 4         : N              
+plaintext[123]               : P9        : input  : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[3][3][0]        : P10       : output : 3.3-V LVTTL       :         : 4         : N              
+plaintext[27]                : P11       : input  : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : P12       :        :                   :         : 4         :                
+GND*                         : P13       :        :                   :         : 4         :                
+plaintext[56]                : P14       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[10]                : P15       : input  : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : P16       :        :                   :         : 3         :                
+plaintext[44]                : P17       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[95]                : P18       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[3][3][6]        : R1        : output : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[1][0][0]        : R2        : output : 3.3-V LVTTL       :         : 1         : N              
+plaintext[117]               : R3        : input  : 3.3-V LVTTL       :         : 1         : N              
+TCK                          : R4        : input  :                   :         : 1         :                
+state_matrix[3][2][3]        : R5        : output : 3.3-V LVTTL       :         : 4         : N              
+plaintext[41]                : R6        : input  : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[2][3][1]        : R7        : output : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[2][1][6]        : R8        : output : 3.3-V LVTTL       :         : 4         : N              
+plaintext[14]                : R9        : input  : 3.3-V LVTTL       :         : 4         : N              
+plaintext[28]                : R10       : input  : 3.3-V LVTTL       :         : 4         : N              
+plaintext[43]                : R11       : input  : 3.3-V LVTTL       :         : 4         : N              
+plaintext[125]               : R12       : input  : 3.3-V LVTTL       :         : 4         : N              
+plaintext[23]                : R13       : input  : 3.3-V LVTTL       :         : 4         : N              
+plaintext[5]                 : R14       : input  : 3.3-V LVTTL       :         : 4         : N              
+plaintext[103]               : R15       : input  : 3.3-V LVTTL       :         : 3         : N              
+plaintext[34]                : R16       : input  : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[0][3][7]        : R17       : output : 3.3-V LVTTL       :         : 3         : N              
+plaintext[106]               : R18       : input  : 3.3-V LVTTL       :         : 3         : N              
+VCCIO1                       : T1        : power  :                   : 3.3V    : 1         :                
+state_matrix[0][3][4]        : T2        : output : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[2][3][5]        : T3        : output : 3.3-V LVTTL       :         : 1         : N              
+state_matrix[1][3][0]        : T4        : output : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[1][3][5]        : T5        : output : 3.3-V LVTTL       :         : 4         : N              
+plaintext[52]                : T6        : input  : 3.3-V LVTTL       :         : 4         : N              
+plaintext[113]               : T7        : input  : 3.3-V LVTTL       :         : 4         : N              
+plaintext[54]                : T8        : input  : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[1][0][6]        : T9        : output : 3.3-V LVTTL       :         : 4         : N              
+plaintext[75]                : T10       : input  : 3.3-V LVTTL       :         : 4         : N              
+plaintext[99]                : T11       : input  : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : T12       :        :                   :         : 4         :                
+state_matrix[0][0][5]        : T13       : output : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[3][0][6]        : T14       : output : 3.3-V LVTTL       :         : 4         : N              
+plaintext[64]                : T15       : input  : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[0][1][2]        : T16       : output : 3.3-V LVTTL       :         : 3         : N              
+state_matrix[1][3][2]        : T17       : output : 3.3-V LVTTL       :         : 3         : N              
+VCCIO3                       : T18       : power  :                   : 3.3V    : 3         :                
+plaintext[104]               : U1        : input  : 3.3-V LVTTL       :         : 4         : N              
+GNDIO                        : U2        : gnd    :                   :         :           :                
+state_matrix[2][0][5]        : U3        : output : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[2][1][4]        : U4        : output : 3.3-V LVTTL       :         : 4         : N              
+plaintext[109]               : U5        : input  : 3.3-V LVTTL       :         : 4         : N              
+plaintext[108]               : U6        : input  : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[1][3][4]        : U7        : output : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[2][3][3]        : U8        : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : U9        :        :                   :         : 4         :                
+plaintext[6]                 : U10       : input  : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[2][1][3]        : U11       : output : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[1][2][3]        : U12       : output : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[3][2][1]        : U13       : output : 3.3-V LVTTL       :         : 4         : N              
+plaintext[30]                : U14       : input  : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[3][3][5]        : U15       : output : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[2][0][7]        : U16       : output : 3.3-V LVTTL       :         : 4         : N              
+GNDIO                        : U17       : gnd    :                   :         :           :                
+plaintext[3]                 : U18       : input  : 3.3-V LVTTL       :         : 4         : N              
+GNDIO                        : V1        : gnd    :                   :         :           :                
+plaintext[91]                : V2        : input  : 3.3-V LVTTL       :         : 4         : N              
+VCCIO4                       : V3        : power  :                   : 3.3V    : 4         :                
+state_matrix[1][1][1]        : V4        : output : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[2][2][6]        : V5        : output : 3.3-V LVTTL       :         : 4         : N              
+plaintext[38]                : V6        : input  : 3.3-V LVTTL       :         : 4         : N              
+GNDIO                        : V7        : gnd    :                   :         :           :                
+state_matrix[3][3][3]        : V8        : output : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[0][0][6]        : V9        : output : 3.3-V LVTTL       :         : 4         : N              
+plaintext[120]               : V10       : input  : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[3][0][4]        : V11       : output : 3.3-V LVTTL       :         : 4         : N              
+plaintext[89]                : V12       : input  : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[0][3][3]        : V13       : output : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[0][2][0]        : V14       : output : 3.3-V LVTTL       :         : 4         : N              
+state_matrix[1][0][2]        : V15       : output : 3.3-V LVTTL       :         : 4         : N              
+VCCIO4                       : V16       : power  :                   : 3.3V    : 4         :                
+state_matrix[0][0][3]        : V17       : output : 3.3-V LVTTL       :         : 4         : N              
+GNDIO                        : V18       : gnd    :                   :         :           :                
