@@ -1,0 +1,10 @@
+module subbyte_tb;
+
+reg [7:0] state_matrix [0:3][0:3];
+wire [7:0] substituted_matrix [0:3][0:3];
+
+subBytes sb(.state_matrix(state_matrix), .substituted_matrix.(substituted_matrix));
+
+initial begin
+$monitor($time, " state_matrix = %h, state_matrix = %h", state_matrix, substituted_matrix);
+end

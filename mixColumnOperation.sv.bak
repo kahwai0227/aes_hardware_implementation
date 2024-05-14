@@ -1,0 +1,20 @@
+module mixColumnOperation(
+	input [7:0] state_column [0:3],
+	input [1:0] row,
+	output [7:0] result [0:3]
+);
+
+reg [7:0] mix_matrix [0:3][0:3] = '{
+    '{8'h02, 8'h03, 8'h01, 8'h01},
+    '{8'h01, 8'h02, 8'h03, 8'h01},
+    '{8'h01, 8'h01, 8'h02, 8'h03},
+    '{8'h03, 8'h01, 8'h01, 8'h02}
+};
+
+mul m0(.a(state_column[0]), .b(mix_matrix[row][0]), .o(result[0]));
+mul m1(.a(state_column[1]), .b(mix_matrix[row][1]), .o(result[1]));
+mul m2(.a(state_column[2]), .b(mix_matrix[row][2]), .o(result[2]));
+mul m3(.a(state_column[3]), .b(mix_matrix[row][3]), .o(result[3]));
+
+endmodule
+

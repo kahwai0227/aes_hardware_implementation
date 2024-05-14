@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "MAX V"
 set_global_assignment -name DEVICE 5M2210ZF324I5
-set_global_assignment -name TOP_LEVEL_ENTITY aes_top
+set_global_assignment -name TOP_LEVEL_ENTITY mixColumns
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:38:48  MAY 13, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -48,11 +48,16 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 125
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR "-1"
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
-set_global_assignment -name SYSTEMVERILOG_FILE pt2sm.sv
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS NOT_USED -section_id eda_simulation
 set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH aes_testbench -section_id eda_simulation
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
+set_global_assignment -name EDA_TEST_BENCH_NAME aes_testbench -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id aes_testbench
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME aes_top -section_id aes_testbench
+set_global_assignment -name EDA_TEST_BENCH_FILE aes_testbench.sv -section_id aes_testbench
+set_global_assignment -name SYSTEMVERILOG_FILE pt2sm_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE pt2sm.sv
 set_global_assignment -name SYSTEMVERILOG_FILE subBytes.sv
 set_global_assignment -name SYSTEMVERILOG_FILE mixColumns.sv
 set_global_assignment -name SYSTEMVERILOG_FILE addRoundKey.sv
@@ -64,7 +69,9 @@ set_global_assignment -name SYSTEMVERILOG_FILE initialRound.sv
 set_global_assignment -name SYSTEMVERILOG_FILE round.sv
 set_global_assignment -name SYSTEMVERILOG_FILE finalRound.sv
 set_global_assignment -name SYSTEMVERILOG_FILE aes_testbench.sv
-set_global_assignment -name EDA_TEST_BENCH_NAME aes_testbench -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id aes_testbench
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME aes_top -section_id aes_testbench
-set_global_assignment -name EDA_TEST_BENCH_FILE aes_testbench.sv -section_id aes_testbench
+set_global_assignment -name SYSTEMVERILOG_FILE subbyte_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE shiftrow_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mixcolumn_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mul.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mul_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mixColumnOperation.sv

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for aes_algo
-Tue May 14 00:12:21 2024
+Tue May 14 19:40:25 2024
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -14,8 +14,7 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Port Connectivity Checks: "finalRound:finalRound_inst|addRoundKey:ark"
- 10. Analysis & Synthesis Messages
+  9. Analysis & Synthesis Messages
 
 
 
@@ -41,13 +40,13 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                             ;
 +-----------------------------+--------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Tue May 14 00:12:21 2024      ;
+; Analysis & Synthesis Status ; Successful - Tue May 14 19:40:25 2024      ;
 ; Quartus II 64-Bit Version   ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name               ; aes_algo                                   ;
-; Top-level Entity Name       ; aes_top                                    ;
+; Top-level Entity Name       ; mixColumns                                 ;
 ; Family                      ; MAX V                                      ;
-; Total logic elements        ; 14,425                                     ;
-; Total pins                  ; 384                                        ;
+; Total logic elements        ; 192                                        ;
+; Total pins                  ; 256                                        ;
 ; Total virtual pins          ; 0                                          ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                              ;
 +-----------------------------+--------------------------------------------+
@@ -59,7 +58,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; 5M2210ZF324I5      ;                    ;
-; Top-level entity name                                                      ; aes_top            ; aes_algo           ;
+; Top-level entity name                                                      ; mixColumns         ; aes_algo           ;
 ; Family name                                                                ; MAX V              ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -137,107 +136,56 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                     ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                 ; Library ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------+---------+
-; pt2sm.sv                         ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/pt2sm.sv             ;         ;
-; subBytes.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/subBytes.sv          ;         ;
-; mixColumns.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/mixColumns.sv        ;         ;
-; addRoundKey.sv                   ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/addRoundKey.sv       ;         ;
-; aes_top.sv                       ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/aes_top.sv           ;         ;
-; roundKeyGenerator.sv             ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/roundKeyGenerator.sv ;         ;
-; shiftRows.sv                     ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/shiftRows.sv         ;         ;
-; initialRound.sv                  ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/initialRound.sv      ;         ;
-; round.sv                         ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/round.sv             ;         ;
-; finalRound.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/finalRound.sv        ;         ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                              ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                          ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
+; mixColumns.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/mixColumns.sv ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                          ;
-+---------------------------------------------+----------------------------------------+
-; Resource                                    ; Usage                                  ;
-+---------------------------------------------+----------------------------------------+
-; Total logic elements                        ; 14425                                  ;
-;     -- Combinational with no register       ; 14425                                  ;
-;     -- Register only                        ; 0                                      ;
-;     -- Combinational with a register        ; 0                                      ;
-;                                             ;                                        ;
-; Logic element usage by number of LUT inputs ;                                        ;
-;     -- 4 input functions                    ; 13707                                  ;
-;     -- 3 input functions                    ; 155                                    ;
-;     -- 2 input functions                    ; 563                                    ;
-;     -- 1 input functions                    ; 0                                      ;
-;     -- 0 input functions                    ; 0                                      ;
-;                                             ;                                        ;
-; Logic elements by mode                      ;                                        ;
-;     -- normal mode                          ; 14425                                  ;
-;     -- arithmetic mode                      ; 0                                      ;
-;     -- qfbk mode                            ; 0                                      ;
-;     -- register cascade mode                ; 0                                      ;
-;     -- synchronous clear/load mode          ; 0                                      ;
-;     -- asynchronous clear/load mode         ; 0                                      ;
-;                                             ;                                        ;
-; Total registers                             ; 0                                      ;
-; I/O pins                                    ; 384                                    ;
-; Maximum fan-out node                        ; roundKeyGenerator:rkg|round_keys[1][2] ;
-; Maximum fan-out                             ; 109                                    ;
-; Total fan-out                               ; 56451                                  ;
-; Average fan-out                             ; 3.81                                   ;
-+---------------------------------------------+----------------------------------------+
++---------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                         ;
++---------------------------------------------+-----------------------+
+; Resource                                    ; Usage                 ;
++---------------------------------------------+-----------------------+
+; Total logic elements                        ; 192                   ;
+;     -- Combinational with no register       ; 192                   ;
+;     -- Register only                        ; 0                     ;
+;     -- Combinational with a register        ; 0                     ;
+;                                             ;                       ;
+; Logic element usage by number of LUT inputs ;                       ;
+;     -- 4 input functions                    ; 72                    ;
+;     -- 3 input functions                    ; 120                   ;
+;     -- 2 input functions                    ; 0                     ;
+;     -- 1 input functions                    ; 0                     ;
+;     -- 0 input functions                    ; 0                     ;
+;                                             ;                       ;
+; Logic elements by mode                      ;                       ;
+;     -- normal mode                          ; 192                   ;
+;     -- arithmetic mode                      ; 0                     ;
+;     -- qfbk mode                            ; 0                     ;
+;     -- register cascade mode                ; 0                     ;
+;     -- synchronous clear/load mode          ; 0                     ;
+;     -- asynchronous clear/load mode         ; 0                     ;
+;                                             ;                       ;
+; Total registers                             ; 0                     ;
+; I/O pins                                    ; 256                   ;
+; Maximum fan-out node                        ; state_matrix[0][3][7] ;
+; Maximum fan-out                             ; 10                    ;
+; Total fan-out                               ; 776                   ;
+; Average fan-out                             ; 1.73                  ;
++---------------------------------------------+-----------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                       ;
-+---------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------+--------------+
-; Compilation Hierarchy Node      ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                 ; Library Name ;
-+---------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------+--------------+
-; |aes_top                        ; 14425 (0)   ; 0            ; 0          ; 384  ; 0            ; 14425 (0)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top                                            ; work         ;
-;    |finalRound:finalRound_inst| ; 647 (0)     ; 0            ; 0          ; 0    ; 0            ; 647 (0)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|finalRound:finalRound_inst                 ; work         ;
-;       |addRoundKey:ark|         ; 23 (23)     ; 0            ; 0          ; 0    ; 0            ; 23 (23)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|finalRound:finalRound_inst|addRoundKey:ark ; work         ;
-;       |subBytes:sb|             ; 624 (624)   ; 0            ; 0          ; 0    ; 0            ; 624 (624)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|finalRound:finalRound_inst|subBytes:sb     ; work         ;
-;    |initialRound:r0|            ; 128 (0)     ; 0            ; 0          ; 0    ; 0            ; 128 (0)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|initialRound:r0                            ; work         ;
-;       |addRoundKey:ark|         ; 128 (128)   ; 0            ; 0          ; 0    ; 0            ; 128 (128)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|initialRound:r0|addRoundKey:ark            ; work         ;
-;    |round:r1|                   ; 859 (0)     ; 0            ; 0          ; 0    ; 0            ; 859 (0)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r1                                   ; work         ;
-;       |addRoundKey:ark|         ; 24 (24)     ; 0            ; 0          ; 0    ; 0            ; 24 (24)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r1|addRoundKey:ark                   ; work         ;
-;       |mixColumns:mc|           ; 3 (3)       ; 0            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r1|mixColumns:mc                     ; work         ;
-;       |subBytes:sb|             ; 832 (832)   ; 0            ; 0          ; 0    ; 0            ; 832 (832)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r1|subBytes:sb                       ; work         ;
-;    |round:r2|                   ; 656 (0)     ; 0            ; 0          ; 0    ; 0            ; 656 (0)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r2                                   ; work         ;
-;       |addRoundKey:ark|         ; 25 (25)     ; 0            ; 0          ; 0    ; 0            ; 25 (25)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r2|addRoundKey:ark                   ; work         ;
-;       |mixColumns:mc|           ; 3 (3)       ; 0            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r2|mixColumns:mc                     ; work         ;
-;       |subBytes:sb|             ; 628 (628)   ; 0            ; 0          ; 0    ; 0            ; 628 (628)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r2|subBytes:sb                       ; work         ;
-;    |round:r3|                   ; 656 (0)     ; 0            ; 0          ; 0    ; 0            ; 656 (0)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r3                                   ; work         ;
-;       |addRoundKey:ark|         ; 25 (25)     ; 0            ; 0          ; 0    ; 0            ; 25 (25)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r3|addRoundKey:ark                   ; work         ;
-;       |mixColumns:mc|           ; 3 (3)       ; 0            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r3|mixColumns:mc                     ; work         ;
-;       |subBytes:sb|             ; 628 (628)   ; 0            ; 0          ; 0    ; 0            ; 628 (628)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r3|subBytes:sb                       ; work         ;
-;    |round:r4|                   ; 657 (0)     ; 0            ; 0          ; 0    ; 0            ; 657 (0)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r4                                   ; work         ;
-;       |addRoundKey:ark|         ; 27 (27)     ; 0            ; 0          ; 0    ; 0            ; 27 (27)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r4|addRoundKey:ark                   ; work         ;
-;       |mixColumns:mc|           ; 2 (2)       ; 0            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r4|mixColumns:mc                     ; work         ;
-;       |subBytes:sb|             ; 628 (628)   ; 0            ; 0          ; 0    ; 0            ; 628 (628)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r4|subBytes:sb                       ; work         ;
-;    |round:r5|                   ; 656 (0)     ; 0            ; 0          ; 0    ; 0            ; 656 (0)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r5                                   ; work         ;
-;       |addRoundKey:ark|         ; 25 (25)     ; 0            ; 0          ; 0    ; 0            ; 25 (25)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r5|addRoundKey:ark                   ; work         ;
-;       |mixColumns:mc|           ; 3 (3)       ; 0            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r5|mixColumns:mc                     ; work         ;
-;       |subBytes:sb|             ; 628 (628)   ; 0            ; 0          ; 0    ; 0            ; 628 (628)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r5|subBytes:sb                       ; work         ;
-;    |round:r6|                   ; 655 (0)     ; 0            ; 0          ; 0    ; 0            ; 655 (0)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r6                                   ; work         ;
-;       |addRoundKey:ark|         ; 26 (26)     ; 0            ; 0          ; 0    ; 0            ; 26 (26)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r6|addRoundKey:ark                   ; work         ;
-;       |mixColumns:mc|           ; 3 (3)       ; 0            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r6|mixColumns:mc                     ; work         ;
-;       |subBytes:sb|             ; 626 (626)   ; 0            ; 0          ; 0    ; 0            ; 626 (626)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r6|subBytes:sb                       ; work         ;
-;    |round:r7|                   ; 657 (0)     ; 0            ; 0          ; 0    ; 0            ; 657 (0)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r7                                   ; work         ;
-;       |addRoundKey:ark|         ; 27 (27)     ; 0            ; 0          ; 0    ; 0            ; 27 (27)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r7|addRoundKey:ark                   ; work         ;
-;       |mixColumns:mc|           ; 2 (2)       ; 0            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r7|mixColumns:mc                     ; work         ;
-;       |subBytes:sb|             ; 628 (628)   ; 0            ; 0          ; 0    ; 0            ; 628 (628)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r7|subBytes:sb                       ; work         ;
-;    |round:r8|                   ; 658 (0)     ; 0            ; 0          ; 0    ; 0            ; 658 (0)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r8                                   ; work         ;
-;       |addRoundKey:ark|         ; 27 (27)     ; 0            ; 0          ; 0    ; 0            ; 27 (27)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r8|addRoundKey:ark                   ; work         ;
-;       |mixColumns:mc|           ; 3 (3)       ; 0            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r8|mixColumns:mc                     ; work         ;
-;       |subBytes:sb|             ; 628 (628)   ; 0            ; 0          ; 0    ; 0            ; 628 (628)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r8|subBytes:sb                       ; work         ;
-;    |round:r9|                   ; 417 (0)     ; 0            ; 0          ; 0    ; 0            ; 417 (0)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r9                                   ; work         ;
-;       |addRoundKey:ark|         ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r9|addRoundKey:ark                   ; work         ;
-;       |mixColumns:mc|           ; 2 (2)       ; 0            ; 0          ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r9|mixColumns:mc                     ; work         ;
-;       |subBytes:sb|             ; 407 (407)   ; 0            ; 0          ; 0    ; 0            ; 407 (407)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r9|subBytes:sb                       ; work         ;
-;    |roundKeyGenerator:rkg|      ; 7779 (7779) ; 0            ; 0          ; 0    ; 0            ; 7779 (7779)  ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|roundKeyGenerator:rkg                      ; work         ;
-+---------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                  ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
+; |mixColumns                ; 192 (192)   ; 0            ; 0          ; 256  ; 0            ; 192 (192)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |mixColumns         ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -256,24 +204,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "finalRound:finalRound_inst|addRoundKey:ark"                                                               ;
-+----------------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port                       ; Type   ; Severity ; Details                                                                             ;
-+----------------------------+--------+----------+-------------------------------------------------------------------------------------+
-; updated_state_matrix[0..2] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Tue May 14 00:05:56 2024
+    Info: Processing started: Tue May 14 19:40:23 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off aes_algo -c aes_algo
 Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file pt2sm_tb.sv
+    Info (12023): Found entity 1: pt2sm_tb
 Info (12021): Found 1 design units, including 1 entities, in source file pt2sm.sv
     Info (12023): Found entity 1: pt2sm
 Info (12021): Found 1 design units, including 1 entities, in source file subbytes.sv
@@ -298,167 +239,31 @@ Info (12021): Found 1 design units, including 1 entities, in source file finalro
     Info (12023): Found entity 1: finalRound
 Info (12021): Found 1 design units, including 1 entities, in source file aes_testbench.sv
     Info (12023): Found entity 1: aes_testbench
-Info (12127): Elaborating entity "aes_top" for the top level hierarchy
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix0" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix1" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix2" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix3" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix4" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix5" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix6" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix7" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix8" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix9" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix10" into its bus
-Info (12128): Elaborating entity "roundKeyGenerator" for hierarchy "roundKeyGenerator:rkg"
-Info (12128): Elaborating entity "pt2sm" for hierarchy "pt2sm:pt2sm0"
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (12128): Elaborating entity "initialRound" for hierarchy "initialRound:r0"
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
-Info (12128): Elaborating entity "addRoundKey" for hierarchy "initialRound:r0|addRoundKey:ark"
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
-Info (12128): Elaborating entity "round" for hierarchy "round:r1"
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage0" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage1" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage2" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
-Info (12128): Elaborating entity "subBytes" for hierarchy "round:r1|subBytes:sb"
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "substituted_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "substituted_matrix" into its bus
-Info (12128): Elaborating entity "shiftRows" for hierarchy "round:r1|shiftRows:sr"
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "shifted_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "shifted_matrix" into its bus
-Info (12128): Elaborating entity "mixColumns" for hierarchy "round:r1|mixColumns:mc"
+Info (12021): Found 1 design units, including 1 entities, in source file subbyte_tb.sv
+    Info (12023): Found entity 1: subbyte_tb
+Info (12021): Found 1 design units, including 1 entities, in source file shiftrow_tb.sv
+    Info (12023): Found entity 1: shiftrow_tb
+Info (12021): Found 1 design units, including 1 entities, in source file mixcolumn_tb.sv
+    Info (12023): Found entity 1: mixcolumn_tb
+Info (12021): Found 1 design units, including 1 entities, in source file mul.sv
+    Info (12023): Found entity 1: mul
+Info (12021): Found 1 design units, including 1 entities, in source file mul_tb.sv
+    Info (12023): Found entity 1: mul_tb
+Info (12021): Found 1 design units, including 1 entities, in source file mixcolumnoperation.sv
+    Info (12023): Found entity 1: mixColumnOperation
+Info (12127): Elaborating entity "mixColumns" for the top level hierarchy
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "mixed_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "mix_matrix" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "mixed_matrix" into its bus
-Info (12128): Elaborating entity "finalRound" for hierarchy "finalRound:finalRound_inst"
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage0" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage1" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage2" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "ciphertext[8]" is stuck at GND
-    Warning (13410): Pin "ciphertext[9]" is stuck at GND
-    Warning (13410): Pin "ciphertext[10]" is stuck at GND
-    Warning (13410): Pin "ciphertext[11]" is stuck at GND
-    Warning (13410): Pin "ciphertext[12]" is stuck at GND
-    Warning (13410): Pin "ciphertext[13]" is stuck at GND
-    Warning (13410): Pin "ciphertext[14]" is stuck at GND
-    Warning (13410): Pin "ciphertext[15]" is stuck at GND
-    Warning (13410): Pin "ciphertext[16]" is stuck at GND
-    Warning (13410): Pin "ciphertext[17]" is stuck at GND
-    Warning (13410): Pin "ciphertext[18]" is stuck at GND
-    Warning (13410): Pin "ciphertext[19]" is stuck at GND
-    Warning (13410): Pin "ciphertext[20]" is stuck at GND
-    Warning (13410): Pin "ciphertext[21]" is stuck at GND
-    Warning (13410): Pin "ciphertext[22]" is stuck at GND
-    Warning (13410): Pin "ciphertext[23]" is stuck at GND
-    Warning (13410): Pin "ciphertext[24]" is stuck at GND
-    Warning (13410): Pin "ciphertext[25]" is stuck at GND
-    Warning (13410): Pin "ciphertext[26]" is stuck at GND
-    Warning (13410): Pin "ciphertext[27]" is stuck at GND
-    Warning (13410): Pin "ciphertext[28]" is stuck at GND
-    Warning (13410): Pin "ciphertext[29]" is stuck at GND
-    Warning (13410): Pin "ciphertext[30]" is stuck at GND
-    Warning (13410): Pin "ciphertext[31]" is stuck at GND
-    Warning (13410): Pin "ciphertext[40]" is stuck at GND
-    Warning (13410): Pin "ciphertext[41]" is stuck at GND
-    Warning (13410): Pin "ciphertext[42]" is stuck at GND
-    Warning (13410): Pin "ciphertext[43]" is stuck at GND
-    Warning (13410): Pin "ciphertext[44]" is stuck at GND
-    Warning (13410): Pin "ciphertext[45]" is stuck at GND
-    Warning (13410): Pin "ciphertext[46]" is stuck at GND
-    Warning (13410): Pin "ciphertext[47]" is stuck at GND
-    Warning (13410): Pin "ciphertext[48]" is stuck at GND
-    Warning (13410): Pin "ciphertext[49]" is stuck at GND
-    Warning (13410): Pin "ciphertext[50]" is stuck at GND
-    Warning (13410): Pin "ciphertext[51]" is stuck at GND
-    Warning (13410): Pin "ciphertext[52]" is stuck at GND
-    Warning (13410): Pin "ciphertext[53]" is stuck at GND
-    Warning (13410): Pin "ciphertext[54]" is stuck at GND
-    Warning (13410): Pin "ciphertext[55]" is stuck at GND
-    Warning (13410): Pin "ciphertext[56]" is stuck at GND
-    Warning (13410): Pin "ciphertext[57]" is stuck at GND
-    Warning (13410): Pin "ciphertext[58]" is stuck at GND
-    Warning (13410): Pin "ciphertext[59]" is stuck at GND
-    Warning (13410): Pin "ciphertext[60]" is stuck at GND
-    Warning (13410): Pin "ciphertext[61]" is stuck at GND
-    Warning (13410): Pin "ciphertext[62]" is stuck at GND
-    Warning (13410): Pin "ciphertext[63]" is stuck at GND
-    Warning (13410): Pin "ciphertext[72]" is stuck at GND
-    Warning (13410): Pin "ciphertext[73]" is stuck at GND
-    Warning (13410): Pin "ciphertext[74]" is stuck at GND
-    Warning (13410): Pin "ciphertext[75]" is stuck at GND
-    Warning (13410): Pin "ciphertext[76]" is stuck at GND
-    Warning (13410): Pin "ciphertext[77]" is stuck at GND
-    Warning (13410): Pin "ciphertext[78]" is stuck at GND
-    Warning (13410): Pin "ciphertext[79]" is stuck at GND
-    Warning (13410): Pin "ciphertext[80]" is stuck at GND
-    Warning (13410): Pin "ciphertext[81]" is stuck at GND
-    Warning (13410): Pin "ciphertext[82]" is stuck at GND
-    Warning (13410): Pin "ciphertext[83]" is stuck at GND
-    Warning (13410): Pin "ciphertext[84]" is stuck at GND
-    Warning (13410): Pin "ciphertext[85]" is stuck at GND
-    Warning (13410): Pin "ciphertext[86]" is stuck at GND
-    Warning (13410): Pin "ciphertext[87]" is stuck at GND
-    Warning (13410): Pin "ciphertext[88]" is stuck at GND
-    Warning (13410): Pin "ciphertext[89]" is stuck at GND
-    Warning (13410): Pin "ciphertext[90]" is stuck at GND
-    Warning (13410): Pin "ciphertext[91]" is stuck at GND
-    Warning (13410): Pin "ciphertext[92]" is stuck at GND
-    Warning (13410): Pin "ciphertext[93]" is stuck at GND
-    Warning (13410): Pin "ciphertext[94]" is stuck at GND
-    Warning (13410): Pin "ciphertext[95]" is stuck at GND
-    Warning (13410): Pin "ciphertext[104]" is stuck at GND
-    Warning (13410): Pin "ciphertext[105]" is stuck at GND
-    Warning (13410): Pin "ciphertext[106]" is stuck at GND
-    Warning (13410): Pin "ciphertext[107]" is stuck at GND
-    Warning (13410): Pin "ciphertext[108]" is stuck at GND
-    Warning (13410): Pin "ciphertext[109]" is stuck at GND
-    Warning (13410): Pin "ciphertext[110]" is stuck at GND
-    Warning (13410): Pin "ciphertext[111]" is stuck at GND
-    Warning (13410): Pin "ciphertext[112]" is stuck at GND
-    Warning (13410): Pin "ciphertext[113]" is stuck at GND
-    Warning (13410): Pin "ciphertext[114]" is stuck at GND
-    Warning (13410): Pin "ciphertext[115]" is stuck at GND
-    Warning (13410): Pin "ciphertext[116]" is stuck at GND
-    Warning (13410): Pin "ciphertext[117]" is stuck at GND
-    Warning (13410): Pin "ciphertext[118]" is stuck at GND
-    Warning (13410): Pin "ciphertext[119]" is stuck at GND
-    Warning (13410): Pin "ciphertext[120]" is stuck at GND
-    Warning (13410): Pin "ciphertext[121]" is stuck at GND
-    Warning (13410): Pin "ciphertext[122]" is stuck at GND
-    Warning (13410): Pin "ciphertext[123]" is stuck at GND
-    Warning (13410): Pin "ciphertext[124]" is stuck at GND
-    Warning (13410): Pin "ciphertext[125]" is stuck at GND
-    Warning (13410): Pin "ciphertext[126]" is stuck at GND
-    Warning (13410): Pin "ciphertext[127]" is stuck at GND
-Info (21057): Implemented 14809 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 256 input pins
+Info (21057): Implemented 448 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 128 input pins
     Info (21059): Implemented 128 output pins
-    Info (21061): Implemented 14425 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 98 warnings
-    Info: Peak virtual memory: 4644 megabytes
-    Info: Processing ended: Tue May 14 00:12:21 2024
-    Info: Elapsed time: 00:06:25
-    Info: Total CPU time (on all processors): 00:04:18
+    Info (21061): Implemented 192 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4600 megabytes
+    Info: Processing ended: Tue May 14 19:40:25 2024
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 
