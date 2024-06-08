@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "MAX V"
 set_global_assignment -name DEVICE 5M2210ZF324I5
-set_global_assignment -name TOP_LEVEL_ENTITY mixColumns
+set_global_assignment -name TOP_LEVEL_ENTITY aes_top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:38:48  MAY 13, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
@@ -75,3 +75,9 @@ set_global_assignment -name SYSTEMVERILOG_FILE mixcolumn_tb.sv
 set_global_assignment -name SYSTEMVERILOG_FILE mul.sv
 set_global_assignment -name SYSTEMVERILOG_FILE mul_tb.sv
 set_global_assignment -name SYSTEMVERILOG_FILE mixColumnOperation.sv
+set_global_assignment -name SYSTEMVERILOG_FILE addRoundKey_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ronndKeyGenerator_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE aes_top_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rounds_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE AES_CU.sv
+set_global_assignment -name SYSTEMVERILOG_FILE keyGenerator_tb.sv

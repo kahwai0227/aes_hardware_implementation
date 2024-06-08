@@ -5,5 +5,5 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vlog -sv -work work +incdir+D:/Projects/aes_hardware_implementation {D:/Projects/aes_hardware_implementation/mixColumns.sv}
+vlog -sv -work work +incdir+D:/Projects/aes_hardware_implementation {D:/Projects/aes_hardware_implementation/keyGenerator.sv}
 

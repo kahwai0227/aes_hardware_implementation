@@ -1,9 +1,10 @@
 module aes_top (
-    input [127:0] plaintext,  // 128-bit input plaintext
-    input [127:0] key,        // 128-bit encryption key
-    output reg [127:0] ciphertext  // 128-bit output ciphertext
+	input start, reset, clk,
+	input [127:0] plaintext,  // 128-bit input plaintext
+	input [127:0] key,        // 128-bit encryption key
+	output reg [127:0] ciphertext  // 128-bit output ciphertext
 );
-
+	reg [127:0] out;
 	reg [127:0] round_keys[0:10]; // 11 round keys for AES-128
 	wire [7:0] state_matrix0 [0:3][0:3];
 	wire [7:0] state_matrix1 [0:3][0:3];
@@ -43,8 +44,14 @@ module aes_top (
 	finalRound finalRound_inst (
 		.state_matrix(state_matrix10),
 		.round_key(round_keys[10]),
-		.ciphertext(ciphertext)
+		.ciphertext(out)
 	);
 
+	always @(posedge clk) begin
+		if(start)
+			ciphertext <= out;
+		else if(reset)
+			ciphertext <= 0;
+	end
  
 endmodule

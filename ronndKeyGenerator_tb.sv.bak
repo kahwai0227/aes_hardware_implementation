@@ -1,0 +1,15 @@
+module roundKeyGenerator_tb;
+reg original_key;
+wire [127:0] round_keys [0:10];
+
+roundKeyGenerator rkg(.original_key(original_key), round_keys(round_keys));
+
+initial begin
+	$monitor($time, "round keys = %p", round_keys);
+end
+
+initial begin
+original_key = 128'h00000000000000000000000000000000;
+end
+
+

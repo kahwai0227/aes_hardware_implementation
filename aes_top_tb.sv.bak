@@ -1,0 +1,7 @@
+module aes_top_tb;
+
+reg [127:0] plaintext;
+reg [127:0] key;
+wire [127:0] ciphertext;
+
+aes_top dut(plaintext, key, ciphertext);

@@ -8,8 +8,11 @@ localparam ROUNDS = 10; // Number of rounds in AES-128
 localparam KEY_BYTES = 16; // Number of bytes in the key
 localparam WORD_BYTES = 4; // Number of bytes in a word
 
+reg [31:0] temp;
+reg [31:0] w[3:0];
+
 reg [7:0] s_box [0:255] = '{
-    8'h63, 8'h7c, 8'h77, 8'h7b, 8'hf2, 8'h6b, 8'h6f, 8'hc5,
+    8'h63, 8'h7c, 8'h77, 8'h7b, 8'hf2, 8'h6b, 8'h6f, 8'hc5, 
     8'h30, 8'h01, 8'h67, 8'h2b, 8'hfe, 8'hd7, 8'hab, 8'h76,
     8'hca, 8'h82, 8'hc9, 8'h7d, 8'hfa, 8'h59, 8'h47, 8'hf0,
     8'had, 8'hd4, 8'ha2, 8'haf, 8'h9c, 8'ha4, 8'h72, 8'hc0,
@@ -21,7 +24,7 @@ reg [7:0] s_box [0:255] = '{
     8'h52, 8'h3b, 8'hd6, 8'hb3, 8'h29, 8'he3, 8'h2f, 8'h84,
     8'h53, 8'hd1, 8'h00, 8'hed, 8'h20, 8'hfc, 8'hb1, 8'h5b,
     8'h6a, 8'hcb, 8'hbe, 8'h39, 8'h4a, 8'h4c, 8'h58, 8'hcf,
-    8'hd0, 8'hef, 8'haa, 8'hfd, 8'h43, 8'h4d, 8'h33, 8'h85,
+    8'hd0, 8'hef, 8'haa, 8'hfb, 8'h43, 8'h4d, 8'h33, 8'h85,
     8'h45, 8'hf9, 8'h02, 8'h7f, 8'h50, 8'h3c, 8'h9f, 8'ha8,
     8'h51, 8'ha3, 8'h40, 8'h8f, 8'h92, 8'h9d, 8'h38, 8'hf5,
     8'hbc, 8'hb6, 8'hda, 8'h21, 8'h10, 8'hff, 8'hf3, 8'hd2,
@@ -43,6 +46,7 @@ reg [7:0] s_box [0:255] = '{
     8'h41, 8'h99, 8'h2d, 8'h0f, 8'hb0, 8'h54, 8'hbb, 8'h16
 };
 
+
 // Perform key expansion to generate round keys
 always @* begin
     round_keys[0] = original_key; // First round key is the original key
@@ -50,8 +54,7 @@ always @* begin
     // Perform key expansion for subsequent round keys
     for (int round = 1; round <= ROUNDS; round = round + 1) begin
         // Extract the last word of the previous round key
-        reg [31:0] temp;
-		  reg [31:0] w[3:0];
+
         temp = round_keys[round - 1][31:0];
 
         // Rotate word left by 1 byte
@@ -62,16 +65,17 @@ always @* begin
 
         // XOR with round constant
         case (round)
-            1: temp = temp ^ ({8'h01, 24'h000000});
-            2: temp = temp ^ ({8'h02, 24'h000000});
-            3: temp = temp ^ ({8'h04, 24'h000000});
-            4: temp = temp ^ ({8'h08, 24'h000000});
-            5: temp = temp ^ ({8'h10, 24'h000000});
-            6: temp = temp ^ ({8'h20, 24'h000000});
-            7: temp = temp ^ ({8'h40, 24'h000000});
-            8: temp = temp ^ ({8'h80, 24'h000000});
-            9: temp = temp ^ ({8'h1b, 24'h000000});
-            10: temp = temp ^ ({8'h36, 24'h000000});
+            1: temp = temp ^ 32'h01000000;
+            2: temp = temp ^ 32'h02000000;
+            3: temp = temp ^ 32'h04000000;
+            4: temp = temp ^ 32'h08000000;
+            5: temp = temp ^ 32'h10000000;
+            6: temp = temp ^ 32'h20000000;
+            7: temp = temp ^ 32'h40000000;
+            8: temp = temp ^ 32'h80000000;
+            9: temp = temp ^ 32'h1b000000;
+            10: temp = temp ^ 32'h36000000;
+				default: temp = temp ^ 32'h00000000;
         endcase
 
         // XOR with first word of previous round key
@@ -82,9 +86,11 @@ always @* begin
 
         // XOR with third word of previous round key
         w[1] = w[2] ^ round_keys[round - 1][63:32];
+		  
+		  w[0] = w[1] ^ round_keys[round - 1][31:0];
 
         // Concatenate words to form round key
-        round_keys[round] = {w[3], w[2], w[1]};
+        round_keys[round] = {w[3], w[2], w[1], w[0]};
     end
 end
 
