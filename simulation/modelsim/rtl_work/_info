@@ -3,36 +3,280 @@ K3
 13
 cModel Technology
 Z0 dD:\Projects\aes_hardware_implementation\simulation\modelsim
-vkeyGenerator
+vaddRoundKey
 Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
-IMkgP3mcPhVfkf0zJjEjEM2
-V<3zzkOd62O;YS1Z]:D=Az0
+Ik7_DNMBM62<Md9R_i1[a`2
+Vklb^=iQ`7BbLbZ83HC8Co1
 S1
 Z2 dD:\Projects\aes_hardware_implementation\simulation\modelsim
-w1717826890
-8D:/Projects/aes_hardware_implementation/keyGenerator.sv
-FD:/Projects/aes_hardware_implementation/keyGenerator.sv
-L0 2
+w1717753392
+8D:/Projects/aes_hardware_implementation/addRoundKey.sv
+FD:/Projects/aes_hardware_implementation/addRoundKey.sv
+L0 1
 Z3 OV;L;10.1d;51
 r1
 31
 Z4 o-work work -O0
+nadd@round@key
+!i10b 1
+!s100 `T_M[Sm>XC<FC7M@fINN23
+!s105 addRoundKey_sv_unit
+!s85 0
+!s108 1719151038.815000
+!s107 D:/Projects/aes_hardware_implementation/addRoundKey.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/addRoundKey.sv|
+!s101 -O0
+vaddRoundKey_tb
+R1
+IzBLOgKCkDGH4:aEPig<MA1
+Vd3a<^eZLET=IAB[2c<DQg1
+S1
+R2
+w1717754094
+8D:/Projects/aes_hardware_implementation/addRoundKey_tb.sv
+FD:/Projects/aes_hardware_implementation/addRoundKey_tb.sv
+L0 1
+R3
+r1
+31
+R4
+nadd@round@key_tb
+!i10b 1
+!s100 2:8EL3?Nk]TzJa^JGIKzY1
+!s105 addRoundKey_tb_sv_unit
+!s85 0
+!s108 1719150914.703000
+!s107 D:/Projects/aes_hardware_implementation/addRoundKey_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/addRoundKey_tb.sv|
+!s101 -O0
+vAES_CU
+R1
+I`E5e^nVdf7VkSeXcOWgIH2
+V^z=5M;`SYz^4OCRKaAcnL0
+S1
+R2
+w1719133468
+8D:/Projects/aes_hardware_implementation/AES_CU.sv
+FD:/Projects/aes_hardware_implementation/AES_CU.sv
+L0 1
+R3
+r1
+31
+R4
+n@a@e@s_@c@u
+!i10b 1
+!s100 EWf8jHJ5VAc@DA9VfG0E?3
+!s105 AES_CU_sv_unit
+!s85 0
+!s108 1719150914.824000
+!s107 D:/Projects/aes_hardware_implementation/AES_CU.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/AES_CU.sv|
+!s101 -O0
+vaes_cu_tb
+R1
+ICa^=9^kCNh^P;i`o0[mj^2
+V;2VZ@:QlaflBneo:eK@IH0
+S1
+R2
+w1719133521
+8D:/Projects/aes_hardware_implementation/aes_cu_tb.sv
+FD:/Projects/aes_hardware_implementation/aes_cu_tb.sv
+L0 1
+R3
+r1
+31
+R4
+!i10b 1
+!s100 [ln7nHZ3o<?_VE1WaEz[02
+!s105 aes_cu_tb_sv_unit
+!s85 0
+!s108 1719150914.964000
+!s107 D:/Projects/aes_hardware_implementation/aes_cu_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/aes_cu_tb.sv|
+!s101 -O0
+vaes_cudu
+R1
+IzT1HPB;GJf2G:l?>L9=d60
+VI3idiB46_EWP6iRAPf1H70
+S1
+R2
+w1717895465
+8D:/Projects/aes_hardware_implementation/aes_cudu.sv
+FD:/Projects/aes_hardware_implementation/aes_cudu.sv
+L0 1
+R3
+r1
+31
+R4
+!i10b 1
+!s100 oafm<`4mmBEYLgC1fdL:83
+!s105 aes_cudu_sv_unit
+!s85 0
+!s108 1719150915.106000
+!s107 D:/Projects/aes_hardware_implementation/aes_cudu.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/aes_cudu.sv|
+!s101 -O0
+vaes_cudu_tb
+R1
+!i10b 1
+!s100 5T@m3O;fR[gn7jA2^]?<k0
+IAT<>T9j]MlznDQOeCd];R1
+VOW9Bk;H<@Y>hhLNP6<bO81
+!s105 aes_cudu_tb_sv_unit
+S1
+R2
+w1719151018
+8D:/Projects/aes_hardware_implementation/aes_cudu_tb.sv
+FD:/Projects/aes_hardware_implementation/aes_cudu_tb.sv
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1719151043.719000
+!s107 D:/Projects/aes_hardware_implementation/aes_cudu_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/aes_cudu_tb.sv|
+!s101 -O0
+R4
+vaes_testbench
+R1
+Iji`UD1l^^e@_8ai:[S28H0
+VRI8M95g011i]=:YcR]IXn1
+S1
+R2
+w1715617978
+8D:/Projects/aes_hardware_implementation/aes_testbench.sv
+FD:/Projects/aes_hardware_implementation/aes_testbench.sv
+L0 1
+R3
+r1
+31
+R4
+!i10b 1
+!s100 <1_?V1z@5OlLRk;[36:FQ0
+!s105 aes_testbench_sv_unit
+!s85 0
+!s108 1719150915.385000
+!s107 D:/Projects/aes_hardware_implementation/aes_testbench.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/aes_testbench.sv|
+!s101 -O0
+vaes_top
+R1
+IV]d=FLE^4@9ZSC6Nd4Nf22
+VLKX_:Jjobg4GSAAg07mg=1
+S1
+R2
+w1719137631
+8D:/Projects/aes_hardware_implementation/aes_top.sv
+FD:/Projects/aes_hardware_implementation/aes_top.sv
+L0 1
+R3
+r1
+31
+R4
+!i10b 1
+!s100 [Y^2PK0NFbDRaXcBF6U[F0
+!s105 aes_top_sv_unit
+!s85 0
+!s108 1719150915.528000
+!s107 D:/Projects/aes_hardware_implementation/aes_top.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/aes_top.sv|
+!s101 -O0
+vaes_top_tb
+R1
+I@hSH^Q:@YNVQJAR[3S2dZ2
+VeF[Q=m7N_]5SZK?Z^4dAF3
+S1
+R2
+w1717844079
+8D:/Projects/aes_hardware_implementation/aes_top_tb.sv
+FD:/Projects/aes_hardware_implementation/aes_top_tb.sv
+L0 1
+R3
+r1
+31
+R4
+!i10b 1
+!s100 [O<oQI]T[6k7kIjiJ]13C0
+!s105 aes_top_tb_sv_unit
+!s85 0
+!s108 1719150915.667000
+!s107 D:/Projects/aes_hardware_implementation/aes_top_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/aes_top_tb.sv|
+!s101 -O0
+vfinalRound
+R1
+I]cIX7XgPzT6G6S6UjDizh3
+Va<cdVEccW9K>Gl774P7Jk3
+S1
+R2
+w1717815931
+8D:/Projects/aes_hardware_implementation/finalRound.sv
+FD:/Projects/aes_hardware_implementation/finalRound.sv
+L0 1
+R3
+r1
+31
+R4
+nfinal@round
+!i10b 1
+!s100 fQ12K0OHQZPmHlT_T<?l03
+!s105 finalRound_sv_unit
+!s85 0
+!s108 1719150915.817000
+!s107 D:/Projects/aes_hardware_implementation/finalRound.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/finalRound.sv|
+!s101 -O0
+vinitialRound
+R1
+I5W9[WHTCn0R8iV?7z4XkZ2
+VeQmUQOz8>n3U;J;jTfN6O1
+S1
+R2
+w1715609289
+8D:/Projects/aes_hardware_implementation/initialRound.sv
+FD:/Projects/aes_hardware_implementation/initialRound.sv
+L0 1
+R3
+r1
+31
+R4
+ninitial@round
+!i10b 1
+!s100 fj@JeQ2BZT0]cReSeg7PK1
+!s105 initialRound_sv_unit
+!s85 0
+!s108 1719150915.971000
+!s107 D:/Projects/aes_hardware_implementation/initialRound.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/initialRound.sv|
+!s101 -O0
+vkeyGenerator
+R1
+IMkgP3mcPhVfkf0zJjEjEM2
+V<3zzkOd62O;YS1Z]:D=Az0
+S1
+R2
+w1717826890
+8D:/Projects/aes_hardware_implementation/keyGenerator.sv
+FD:/Projects/aes_hardware_implementation/keyGenerator.sv
+L0 2
+R3
+r1
+31
+R4
 nkey@generator
 !i10b 1
 !s100 ALBb>g?2>EMz_:2Xod5L<3
 !s105 keyGenerator_sv_unit
 !s85 0
-!s108 1717826912.924000
+!s108 1719150916.111000
 !s107 D:/Projects/aes_hardware_implementation/keyGenerator.sv|
 !s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/keyGenerator.sv|
 !s101 -O0
 vkeyGenerator_tb
 R1
-!i10b 1
-!s100 fYI559kPia5[j36HKURA>2
 ICV;92idz`X1o`<1DIS0aN3
 VEHBEcldT<z_4Ic7859?a22
-!s105 keyGenerator_tb_sv_unit
 S1
 R2
 w1717826900
@@ -41,11 +285,350 @@ FD:/Projects/aes_hardware_implementation/keyGenerator_tb.sv
 L0 1
 R3
 r1
-!s85 0
 31
-!s108 1717826913.032000
+R4
+nkey@generator_tb
+!i10b 1
+!s100 fYI559kPia5[j36HKURA>2
+!s105 keyGenerator_tb_sv_unit
+!s85 0
+!s108 1719150916.263000
 !s107 D:/Projects/aes_hardware_implementation/keyGenerator_tb.sv|
 !s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/keyGenerator_tb.sv|
 !s101 -O0
+vmixcolumn_tb
+R1
+IYfB18?<]CcKHgX;l36_a61
+ViNU9gIJD6JHM6]3773_k@0
+S1
+R2
+w1715672163
+8D:/Projects/aes_hardware_implementation/mixcolumn_tb.sv
+FD:/Projects/aes_hardware_implementation/mixcolumn_tb.sv
+L0 1
+R3
+r1
+31
 R4
-nkey@generator_tb
+!i10b 1
+!s100 >4FbjV7=L0kCOWUZZkZiR3
+!s105 mixcolumn_tb_sv_unit
+!s85 0
+!s108 1719150916.499000
+!s107 D:/Projects/aes_hardware_implementation/mixcolumn_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/mixcolumn_tb.sv|
+!s101 -O0
+vmixColumnOperation
+R1
+IiC>aDnen;8i1_Y^KQ7QfG1
+VI5k54Sbl?YF;<^Gk5[@`71
+S1
+R2
+w1715685592
+8D:/Projects/aes_hardware_implementation/mixColumnOperation.sv
+FD:/Projects/aes_hardware_implementation/mixColumnOperation.sv
+L0 1
+R3
+r1
+31
+R4
+nmix@column@operation
+!i10b 1
+!s100 c>^?d]Zo3T@GZCn`2Oacz3
+!s105 mixColumnOperation_sv_unit
+!s85 0
+!s108 1719150916.667000
+!s107 D:/Projects/aes_hardware_implementation/mixColumnOperation.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/mixColumnOperation.sv|
+!s101 -O0
+vmixColumns
+R1
+ICN2QOmme[7e9ez452>^6Y0
+VO^HQnk[?m2k`IA<9@NNk:3
+S1
+R2
+w1715686821
+8D:/Projects/aes_hardware_implementation/mixColumns.sv
+FD:/Projects/aes_hardware_implementation/mixColumns.sv
+L0 1
+R3
+r1
+31
+R4
+nmix@columns
+!i10b 1
+!s100 RPVEbFcKJN9G9;DL[V6om0
+!s105 mixColumns_sv_unit
+!s85 0
+!s108 1719150916.839000
+!s107 D:/Projects/aes_hardware_implementation/mixColumns.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/mixColumns.sv|
+!s101 -O0
+vmul
+R1
+ICb0?lfaYY0?Ab9zVc52233
+VFD:iH04GML7EfGORi_b0`0
+S1
+R2
+w1715685552
+8D:/Projects/aes_hardware_implementation/mul.sv
+FD:/Projects/aes_hardware_implementation/mul.sv
+L0 1
+R3
+r1
+31
+R4
+!i10b 1
+!s100 =c?1SZZ[JImD;alTHZmdl3
+!s105 mul_sv_unit
+!s85 0
+!s108 1719150917.007000
+!s107 D:/Projects/aes_hardware_implementation/mul.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/mul.sv|
+!s101 -O0
+vmul_tb
+R1
+I=hz<;YL0K9gPJQ7:Xf@G21
+VN]`H2JY3?V[b[Eeo?Qd8E1
+S1
+R2
+w1715675020
+8D:/Projects/aes_hardware_implementation/mul_tb.sv
+FD:/Projects/aes_hardware_implementation/mul_tb.sv
+L0 1
+R3
+r1
+31
+R4
+!i10b 1
+!s100 1=GlCzSAA``?SW1E9;JTX1
+!s105 mul_tb_sv_unit
+!s85 0
+!s108 1719150917.192000
+!s107 D:/Projects/aes_hardware_implementation/mul_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/mul_tb.sv|
+!s101 -O0
+vpt2sm
+R1
+II^6]foaBiclc:819fQ>Z@1
+V@PQfaE^AIYUTc6KLQm@lU3
+S1
+R2
+w1715569963
+8D:/Projects/aes_hardware_implementation/pt2sm.sv
+FD:/Projects/aes_hardware_implementation/pt2sm.sv
+L0 1
+R3
+r1
+31
+R4
+!i10b 1
+!s100 Oe`O2^Rh_23C3E`^dV^k41
+!s105 pt2sm_sv_unit
+!s85 0
+!s108 1719150917.388000
+!s107 D:/Projects/aes_hardware_implementation/pt2sm.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/pt2sm.sv|
+!s101 -O0
+vpt2sm_tb
+R1
+I7VVVFISQkCWakc>YQYNOe2
+VJ8XLDeTfMNhMHKL=?lFTl1
+S1
+R2
+w1715570070
+8D:/Projects/aes_hardware_implementation/pt2sm_tb.sv
+FD:/Projects/aes_hardware_implementation/pt2sm_tb.sv
+L0 1
+R3
+r1
+31
+R4
+!i10b 1
+!s100 kCAJ:W1]Li9@ImNfnXcAM1
+!s105 pt2sm_tb_sv_unit
+!s85 0
+!s108 1719150917.600000
+!s107 D:/Projects/aes_hardware_implementation/pt2sm_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/pt2sm_tb.sv|
+!s101 -O0
+vround
+R1
+IK^?gKdzAKIXjXb``RK0O73
+VA@@NMMO>WVj;EJlY81H8A0
+S1
+R2
+w1715610008
+8D:/Projects/aes_hardware_implementation/round.sv
+FD:/Projects/aes_hardware_implementation/round.sv
+L0 1
+R3
+r1
+31
+R4
+!i10b 1
+!s100 @JYO1]oBWTM4IhQASOk8<2
+!s105 round_sv_unit
+!s85 0
+!s108 1719150918.016000
+!s107 D:/Projects/aes_hardware_implementation/round.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/round.sv|
+!s101 -O0
+vroundKeyGenerator
+R1
+I1jIH0S4ZBBn8XM2WE@J8a2
+Vl;MQ1m689dI0e0WL@<QGf3
+S1
+R2
+w1717774899
+8D:/Projects/aes_hardware_implementation/roundKeyGenerator.sv
+FD:/Projects/aes_hardware_implementation/roundKeyGenerator.sv
+L0 1
+R3
+r1
+31
+R4
+nround@key@generator
+!i10b 1
+!s100 8TLNb^KeV[f:?WFN^;I^e0
+!s105 roundKeyGenerator_sv_unit
+!s85 0
+!s108 1719150918.203000
+!s107 D:/Projects/aes_hardware_implementation/roundKeyGenerator.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/roundKeyGenerator.sv|
+!s101 -O0
+vroundKeyGenerator_tb
+R1
+Iii9:CRLYdPo07[>=9o7JG3
+V^G3HLdVT[HVcV[06mPJ2S0
+S1
+R2
+w1717775080
+8D:/Projects/aes_hardware_implementation/ronndKeyGenerator_tb.sv
+FD:/Projects/aes_hardware_implementation/ronndKeyGenerator_tb.sv
+L0 1
+R3
+r1
+31
+R4
+nround@key@generator_tb
+!i10b 1
+!s100 SK7W76Uo3:N<n3H[Z?bnI1
+!s105 ronndKeyGenerator_tb_sv_unit
+!s85 0
+!s108 1719150917.822000
+!s107 D:/Projects/aes_hardware_implementation/ronndKeyGenerator_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/ronndKeyGenerator_tb.sv|
+!s101 -O0
+vrounds_tb
+R1
+Ik`G]ZTiE9ZW6CMVB4bz]e2
+VIa1>iTgZ]`g:l0AF28;oc1
+S1
+R2
+w1717816668
+8D:/Projects/aes_hardware_implementation/rounds_tb.sv
+FD:/Projects/aes_hardware_implementation/rounds_tb.sv
+L0 1
+R3
+r1
+31
+R4
+!i10b 1
+!s100 >LC>=bg`Ye?mbNKFlDA[13
+!s105 rounds_tb_sv_unit
+!s85 0
+!s108 1719150918.378000
+!s107 D:/Projects/aes_hardware_implementation/rounds_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/rounds_tb.sv|
+!s101 -O0
+vshiftrow_tb
+R1
+IaFBdHTEcC1:[iMP47`F`G0
+V7mhIOVL^2PLRNZCWBGNaA2
+S1
+R2
+w1715671918
+8D:/Projects/aes_hardware_implementation/shiftrow_tb.sv
+FD:/Projects/aes_hardware_implementation/shiftrow_tb.sv
+L0 1
+R3
+r1
+31
+R4
+!i10b 1
+!s100 TWIh`<lHDD11k4FR_f3Y<3
+!s105 shiftrow_tb_sv_unit
+!s85 0
+!s108 1719150918.572000
+!s107 D:/Projects/aes_hardware_implementation/shiftrow_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/shiftrow_tb.sv|
+!s101 -O0
+vshiftRows
+R1
+Il87jLI?BN:BfV`mXK=3gH1
+VdUeJk]Ub[oZ7PO4U_eI^31
+S1
+R2
+w1715588828
+8D:/Projects/aes_hardware_implementation/shiftRows.sv
+FD:/Projects/aes_hardware_implementation/shiftRows.sv
+L0 1
+R3
+r1
+31
+R4
+nshift@rows
+!i10b 1
+!s100 6IC[0EoK_k9Nmh5CPfS_j2
+!s105 shiftRows_sv_unit
+!s85 0
+!s108 1719150918.746000
+!s107 D:/Projects/aes_hardware_implementation/shiftRows.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/shiftRows.sv|
+!s101 -O0
+vsubbyte_tb
+R1
+IeejWiH8oh:DPI0mBz?X@52
+V<Eoo_<oKF6H7TkJ>4_z@T0
+S1
+R2
+w1715671060
+8D:/Projects/aes_hardware_implementation/subbyte_tb.sv
+FD:/Projects/aes_hardware_implementation/subbyte_tb.sv
+L0 1
+R3
+r1
+31
+R4
+!i10b 1
+!s100 bS2Wz=OY``F5X=SB[K8HO2
+!s105 subbyte_tb_sv_unit
+!s85 0
+!s108 1719150918.921000
+!s107 D:/Projects/aes_hardware_implementation/subbyte_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/subbyte_tb.sv|
+!s101 -O0
+vsubBytes
+R1
+I=6n:^F>mW^n2agBI]]7AG2
+VQc[KU1P`W>n?oKa3YZIaX2
+S1
+R2
+w1715594942
+8D:/Projects/aes_hardware_implementation/subBytes.sv
+FD:/Projects/aes_hardware_implementation/subBytes.sv
+L0 1
+R3
+r1
+31
+R4
+nsub@bytes
+!i10b 1
+!s100 NR4E7DYL61ah4Q8zjlBJk3
+!s105 subBytes_sv_unit
+!s85 0
+!s108 1719150919.096000
+!s107 D:/Projects/aes_hardware_implementation/subBytes.sv|
+!s90 -reportprogress|300|-work|work|D:/Projects/aes_hardware_implementation/subBytes.sv|
+!s101 -O0

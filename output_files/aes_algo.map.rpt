@@ -1,5 +1,5 @@
 Analysis & Synthesis report for aes_algo
-Sat Jun 08 14:18:30 2024
+Sun Jun 23 21:25:42 2024
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -14,10 +14,9 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Inverted Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Analysis & Synthesis Messages
- 12. Analysis & Synthesis Suppressed Messages
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Analysis & Synthesis Messages
+ 11. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -43,13 +42,13 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                             ;
 +-----------------------------+--------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sat Jun 08 14:18:30 2024      ;
+; Analysis & Synthesis Status ; Successful - Sun Jun 23 21:25:42 2024      ;
 ; Quartus II 64-Bit Version   ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name               ; aes_algo                                   ;
-; Top-level Entity Name       ; keyGenerator                               ;
+; Top-level Entity Name       ; aes_top                                    ;
 ; Family                      ; MAX V                                      ;
-; Total logic elements        ; 257                                        ;
-; Total pins                  ; 131                                        ;
+; Total logic elements        ; 45,011                                     ;
+; Total pins                  ; 387                                        ;
 ; Total virtual pins          ; 0                                          ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                              ;
 +-----------------------------+--------------------------------------------+
@@ -61,7 +60,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; 5M2210ZF324I5      ;                    ;
-; Top-level entity name                                                      ; keyGenerator       ; aes_algo           ;
+; Top-level entity name                                                      ; aes_top            ; aes_algo           ;
 ; Family name                                                                ; MAX V              ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -139,56 +138,106 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                            ; Library ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
-; keyGenerator.sv                  ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/keyGenerator.sv ;         ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                     ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                 ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------+---------+
+; pt2sm.sv                         ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/pt2sm.sv             ;         ;
+; subBytes.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/subBytes.sv          ;         ;
+; mixColumns.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/mixColumns.sv        ;         ;
+; addRoundKey.sv                   ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/addRoundKey.sv       ;         ;
+; aes_top.sv                       ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/aes_top.sv           ;         ;
+; roundKeyGenerator.sv             ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/roundKeyGenerator.sv ;         ;
+; shiftRows.sv                     ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/shiftRows.sv         ;         ;
+; initialRound.sv                  ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/initialRound.sv      ;         ;
+; round.sv                         ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/round.sv             ;         ;
+; finalRound.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/Projects/aes_hardware_implementation/finalRound.sv        ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Total logic elements                        ; 257   ;
-;     -- Combinational with no register       ; 1     ;
-;     -- Register only                        ; 126   ;
-;     -- Combinational with a register        ; 130   ;
-;                                             ;       ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 1     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- 2 input functions                    ; 129   ;
-;     -- 1 input functions                    ; 1     ;
-;     -- 0 input functions                    ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 257   ;
-;     -- arithmetic mode                      ; 0     ;
-;     -- qfbk mode                            ; 0     ;
-;     -- register cascade mode                ; 0     ;
-;     -- synchronous clear/load mode          ; 0     ;
-;     -- asynchronous clear/load mode         ; 128   ;
-;                                             ;       ;
-; Total registers                             ; 256   ;
-; I/O pins                                    ; 131   ;
-; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 256   ;
-; Total fan-out                               ; 1029  ;
-; Average fan-out                             ; 2.65  ;
-+---------------------------------------------+-------+
++------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary          ;
++---------------------------------------------+--------+
+; Resource                                    ; Usage  ;
++---------------------------------------------+--------+
+; Total logic elements                        ; 45011  ;
+;     -- Combinational with no register       ; 44883  ;
+;     -- Register only                        ; 0      ;
+;     -- Combinational with a register        ; 128    ;
+;                                             ;        ;
+; Logic element usage by number of LUT inputs ;        ;
+;     -- 4 input functions                    ; 43358  ;
+;     -- 3 input functions                    ; 1055   ;
+;     -- 2 input functions                    ; 598    ;
+;     -- 1 input functions                    ; 0      ;
+;     -- 0 input functions                    ; 0      ;
+;                                             ;        ;
+; Logic elements by mode                      ;        ;
+;     -- normal mode                          ; 45011  ;
+;     -- arithmetic mode                      ; 0      ;
+;     -- qfbk mode                            ; 0      ;
+;     -- register cascade mode                ; 0      ;
+;     -- synchronous clear/load mode          ; 128    ;
+;     -- asynchronous clear/load mode         ; 0      ;
+;                                             ;        ;
+; Total registers                             ; 128    ;
+; I/O pins                                    ; 387    ;
+; Maximum fan-out node                        ; start  ;
+; Maximum fan-out                             ; 129    ;
+; Total fan-out                               ; 178305 ;
+; Average fan-out                             ; 3.93   ;
++---------------------------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                  ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; |keyGenerator              ; 257 (257)   ; 256          ; 0          ; 131  ; 0            ; 1 (1)        ; 126 (126)         ; 130 (130)        ; 0 (0)           ; 0 (0)      ; |keyGenerator       ; work         ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                   ;
++---------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------+--------------+
+; Compilation Hierarchy Node      ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                             ; Library Name ;
++---------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------+--------------+
+; |aes_top                        ; 45011 (129) ; 128          ; 0          ; 387  ; 0            ; 44883 (1)    ; 0 (0)             ; 128 (128)        ; 0 (0)           ; 0 (0)      ; |aes_top                                        ; work         ;
+;    |finalRound:finalRound_inst| ; 3328 (0)    ; 0            ; 0          ; 0    ; 0            ; 3328 (0)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|finalRound:finalRound_inst             ; work         ;
+;       |subBytes:sb|             ; 3328 (3328) ; 0            ; 0          ; 0    ; 0            ; 3328 (3328)  ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|finalRound:finalRound_inst|subBytes:sb ; work         ;
+;    |initialRound:r0|            ; 128 (0)     ; 0            ; 0          ; 0    ; 0            ; 128 (0)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|initialRound:r0                        ; work         ;
+;       |addRoundKey:ark|         ; 128 (128)   ; 0            ; 0          ; 0    ; 0            ; 128 (128)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|initialRound:r0|addRoundKey:ark        ; work         ;
+;    |round:r1|                   ; 3583 (0)    ; 0            ; 0          ; 0    ; 0            ; 3583 (0)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r1                               ; work         ;
+;       |addRoundKey:ark|         ; 233 (233)   ; 0            ; 0          ; 0    ; 0            ; 233 (233)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r1|addRoundKey:ark               ; work         ;
+;       |mixColumns:mc|           ; 22 (22)     ; 0            ; 0          ; 0    ; 0            ; 22 (22)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r1|mixColumns:mc                 ; work         ;
+;       |subBytes:sb|             ; 3328 (3328) ; 0            ; 0          ; 0    ; 0            ; 3328 (3328)  ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r1|subBytes:sb                   ; work         ;
+;    |round:r2|                   ; 3600 (0)    ; 0            ; 0          ; 0    ; 0            ; 3600 (0)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r2                               ; work         ;
+;       |addRoundKey:ark|         ; 254 (254)   ; 0            ; 0          ; 0    ; 0            ; 254 (254)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r2|addRoundKey:ark               ; work         ;
+;       |mixColumns:mc|           ; 18 (18)     ; 0            ; 0          ; 0    ; 0            ; 18 (18)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r2|mixColumns:mc                 ; work         ;
+;       |subBytes:sb|             ; 3328 (3328) ; 0            ; 0          ; 0    ; 0            ; 3328 (3328)  ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r2|subBytes:sb                   ; work         ;
+;    |round:r3|                   ; 3609 (0)    ; 0            ; 0          ; 0    ; 0            ; 3609 (0)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r3                               ; work         ;
+;       |addRoundKey:ark|         ; 267 (267)   ; 0            ; 0          ; 0    ; 0            ; 267 (267)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r3|addRoundKey:ark               ; work         ;
+;       |mixColumns:mc|           ; 14 (14)     ; 0            ; 0          ; 0    ; 0            ; 14 (14)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r3|mixColumns:mc                 ; work         ;
+;       |subBytes:sb|             ; 3328 (3328) ; 0            ; 0          ; 0    ; 0            ; 3328 (3328)  ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r3|subBytes:sb                   ; work         ;
+;    |round:r4|                   ; 3622 (0)    ; 0            ; 0          ; 0    ; 0            ; 3622 (0)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r4                               ; work         ;
+;       |addRoundKey:ark|         ; 288 (288)   ; 0            ; 0          ; 0    ; 0            ; 288 (288)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r4|addRoundKey:ark               ; work         ;
+;       |mixColumns:mc|           ; 6 (6)       ; 0            ; 0          ; 0    ; 0            ; 6 (6)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r4|mixColumns:mc                 ; work         ;
+;       |subBytes:sb|             ; 3328 (3328) ; 0            ; 0          ; 0    ; 0            ; 3328 (3328)  ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r4|subBytes:sb                   ; work         ;
+;    |round:r5|                   ; 3633 (0)    ; 0            ; 0          ; 0    ; 0            ; 3633 (0)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r5                               ; work         ;
+;       |addRoundKey:ark|         ; 294 (294)   ; 0            ; 0          ; 0    ; 0            ; 294 (294)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r5|addRoundKey:ark               ; work         ;
+;       |mixColumns:mc|           ; 11 (11)     ; 0            ; 0          ; 0    ; 0            ; 11 (11)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r5|mixColumns:mc                 ; work         ;
+;       |subBytes:sb|             ; 3328 (3328) ; 0            ; 0          ; 0    ; 0            ; 3328 (3328)  ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r5|subBytes:sb                   ; work         ;
+;    |round:r6|                   ; 3609 (0)    ; 0            ; 0          ; 0    ; 0            ; 3609 (0)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r6                               ; work         ;
+;       |addRoundKey:ark|         ; 265 (265)   ; 0            ; 0          ; 0    ; 0            ; 265 (265)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r6|addRoundKey:ark               ; work         ;
+;       |mixColumns:mc|           ; 16 (16)     ; 0            ; 0          ; 0    ; 0            ; 16 (16)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r6|mixColumns:mc                 ; work         ;
+;       |subBytes:sb|             ; 3328 (3328) ; 0            ; 0          ; 0    ; 0            ; 3328 (3328)  ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r6|subBytes:sb                   ; work         ;
+;    |round:r7|                   ; 3627 (0)    ; 0            ; 0          ; 0    ; 0            ; 3627 (0)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r7                               ; work         ;
+;       |addRoundKey:ark|         ; 286 (286)   ; 0            ; 0          ; 0    ; 0            ; 286 (286)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r7|addRoundKey:ark               ; work         ;
+;       |mixColumns:mc|           ; 13 (13)     ; 0            ; 0          ; 0    ; 0            ; 13 (13)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r7|mixColumns:mc                 ; work         ;
+;       |subBytes:sb|             ; 3328 (3328) ; 0            ; 0          ; 0    ; 0            ; 3328 (3328)  ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r7|subBytes:sb                   ; work         ;
+;    |round:r8|                   ; 3584 (0)    ; 0            ; 0          ; 0    ; 0            ; 3584 (0)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r8                               ; work         ;
+;       |addRoundKey:ark|         ; 239 (239)   ; 0            ; 0          ; 0    ; 0            ; 239 (239)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r8|addRoundKey:ark               ; work         ;
+;       |mixColumns:mc|           ; 17 (17)     ; 0            ; 0          ; 0    ; 0            ; 17 (17)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r8|mixColumns:mc                 ; work         ;
+;       |subBytes:sb|             ; 3328 (3328) ; 0            ; 0          ; 0    ; 0            ; 3328 (3328)  ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r8|subBytes:sb                   ; work         ;
+;    |round:r9|                   ; 3600 (0)    ; 0            ; 0          ; 0    ; 0            ; 3600 (0)     ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r9                               ; work         ;
+;       |addRoundKey:ark|         ; 264 (264)   ; 0            ; 0          ; 0    ; 0            ; 264 (264)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r9|addRoundKey:ark               ; work         ;
+;       |mixColumns:mc|           ; 8 (8)       ; 0            ; 0          ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r9|mixColumns:mc                 ; work         ;
+;       |subBytes:sb|             ; 3328 (3328) ; 0            ; 0          ; 0    ; 0            ; 3328 (3328)  ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|round:r9|subBytes:sb                   ; work         ;
+;    |roundKeyGenerator:rkg|      ; 8959 (8959) ; 0            ; 0          ; 0    ; 0            ; 8959 (8959)  ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |aes_top|roundKeyGenerator:rkg                  ; work         ;
++---------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -197,33 +246,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 256   ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 128   ;
+; Number of registers using Synchronous Clear  ; 128   ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 128   ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 128   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; lfsr[0]                                ; 2       ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
-; 3:1                ; 128 bits  ; 256 LEs       ; 128 LEs              ; 128 LEs                ; Yes        ; |keyGenerator|rand_num[0]~reg0 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+; 3:1                ; 128 bits  ; 256 LEs       ; 128 LEs              ; 128 LEs                ; Yes        ; |aes_top|ciphertext[113]~reg0 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
 
 
 +-------------------------------+
@@ -232,7 +271,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Sat Jun 08 14:18:29 2024
+    Info: Processing started: Sun Jun 23 18:13:53 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off aes_algo -c aes_algo
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file pt2sm_tb.sv
@@ -285,18 +324,77 @@ Info (12021): Found 1 design units, including 1 entities, in source file aes_cu.
     Info (12023): Found entity 1: AES_CU
 Info (12021): Found 1 design units, including 1 entities, in source file keygenerator_tb.sv
     Info (12023): Found entity 1: keyGenerator_tb
-Info (12127): Elaborating entity "keyGenerator" for the top level hierarchy
-Info (18000): Registers with preset signals will power-up high
-Info (21057): Implemented 388 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
+Info (12021): Found 1 design units, including 1 entities, in source file aes_cudu.sv
+    Info (12023): Found entity 1: aes_cudu
+Info (12021): Found 1 design units, including 1 entities, in source file aes_cudu_tb.sv
+    Info (12023): Found entity 1: aes_cudu_tb
+Info (12021): Found 1 design units, including 1 entities, in source file aes_cu_tb.sv
+    Info (12023): Found entity 1: aes_cu_tb
+Info (12127): Elaborating entity "aes_top" for the top level hierarchy
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix0" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix1" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix2" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix3" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix4" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix5" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix6" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix7" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix8" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix9" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix10" into its bus
+Info (12128): Elaborating entity "roundKeyGenerator" for hierarchy "roundKeyGenerator:rkg"
+Info (12128): Elaborating entity "pt2sm" for hierarchy "pt2sm:pt2sm0"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (12128): Elaborating entity "initialRound" for hierarchy "initialRound:r0"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
+Info (12128): Elaborating entity "addRoundKey" for hierarchy "initialRound:r0|addRoundKey:ark"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
+Info (12128): Elaborating entity "round" for hierarchy "round:r1"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage0" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage1" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage2" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "updated_state_matrix" into its bus
+Info (12128): Elaborating entity "subBytes" for hierarchy "round:r1|subBytes:sb"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "substituted_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "substituted_matrix" into its bus
+Info (12128): Elaborating entity "shiftRows" for hierarchy "round:r1|shiftRows:sr"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "shifted_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "shifted_matrix" into its bus
+Info (12128): Elaborating entity "mixColumns" for hierarchy "round:r1|mixColumns:mc"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "mixed_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "mixed_matrix" into its bus
+Info (12128): Elaborating entity "finalRound" for hierarchy "finalRound:finalRound_inst"
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage0" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage1" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "stage2" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "state_matrix" into its bus
+Info (21057): Implemented 45398 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 259 input pins
     Info (21059): Implemented 128 output pins
-    Info (21061): Implemented 257 logic cells
+    Info (21061): Implemented 45011 logic cells
 Info (144001): Generated suppressed messages file D:/Projects/aes_hardware_implementation/output_files/aes_algo.map.smsg
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4601 megabytes
-    Info: Processing ended: Sat Jun 08 14:18:30 2024
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Peak virtual memory: 4728 megabytes
+    Info: Processing ended: Sun Jun 23 21:25:44 2024
+    Info: Elapsed time: 03:11:51
+    Info: Total CPU time (on all processors): 01:53:41
 
 
 +------------------------------------------+

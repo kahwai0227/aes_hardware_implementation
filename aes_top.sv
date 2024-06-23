@@ -50,7 +50,7 @@ module aes_top (
 	always @(posedge clk) begin
 		if(start)
 			ciphertext <= out;
-		else if(reset)
+		else if(!reset)
 			ciphertext <= 0;
 	end
  
